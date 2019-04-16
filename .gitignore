@@ -1,0 +1,16 @@
+*.sqlite
+/.vs/Software-Engineering-CSharp-SoftUni/v15/.suo
+/.vs/*.json
+/Technology Fundamentals/04-Methods/.vs/04 Methods/v15/.suo
+/Technology Fundamentals/04-Methods/04-Methods/E01 Smallest of Three Numbers/bin/Debug/netcoreapp2.0/*.json
+/Technology Fundamentals/04-Methods/04-Methods/E01 Smallest of Three Numbers/bin/Debug/netcoreapp2.0/*.dll
+/Technology Fundamentals/04-Methods/04-Methods/E01 Smallest of Three Numbers/bin/Debug/netcoreapp2.0/*.pdb
+/Technology Fundamentals/04-Methods/04-Methods/E01 Smallest of Three Numbers/obj/Debug/netcoreapp2.0/*.cache
+*.txt
+*.dll
+*.pdb
+*.cache
+/Technology Fundamentals/04-Methods/04-Methods/E01 Smallest of Three Numbers/obj/*.props
+*.json
+*.targets
+*.props

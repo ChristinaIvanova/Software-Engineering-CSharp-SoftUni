@@ -7,9 +7,7 @@ namespace L03_Calculations
         static void Main()
         {
             string command = Console.ReadLine();
-
             int a = int.Parse(Console.ReadLine());
-
             int b = int.Parse(Console.ReadLine());
 
             switch (command)

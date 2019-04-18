@@ -9,7 +9,6 @@ namespace L04_Printing_triangle
             int number = int.Parse(Console.ReadLine());
 
             PrintTriangle(number);
-
             PrintReversedTriangle(number);
         }
 

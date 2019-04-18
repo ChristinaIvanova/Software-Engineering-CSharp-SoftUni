@@ -9,6 +9,7 @@ namespace L10_Math_operation
             int firstNumber = int.Parse(Console.ReadLine());
             string operators = Console.ReadLine();
             int secondNumber = int.Parse(Console.ReadLine());
+
             double result = GetCalculate(firstNumber, operators, secondNumber);
             Console.WriteLine(result);
         }

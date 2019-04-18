@@ -7,15 +7,12 @@ namespace E08_Factorial_Division
         static void Main()
         {
             int firstNumber = int.Parse(Console.ReadLine());
-
             int secondNumber = int.Parse(Console.ReadLine());
 
             long firstFactorial = GetFactoriel(firstNumber);
-
             long secondFactorial = GetFactoriel(secondNumber);
 
-            double divided =(double) firstFactorial / secondFactorial;
-
+            double divided = (double)firstFactorial / secondFactorial;
             Console.WriteLine($"{divided:f2}");
         }
         private static long GetFactoriel(int a)

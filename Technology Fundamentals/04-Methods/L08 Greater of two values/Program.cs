@@ -7,12 +7,10 @@ namespace L08_Greater_of_two_values
 
         static void Main()
         {
-            private static void Main(string[] args)
+            private static void Main()
             {
                 string typeValue = Console.ReadLine();
-
                 string firstValue = Console.ReadLine();
-
                 string secondValue = Console.ReadLine();
 
                 Console.WriteLine(GetMax(typeValue, firstValue, secondValue));

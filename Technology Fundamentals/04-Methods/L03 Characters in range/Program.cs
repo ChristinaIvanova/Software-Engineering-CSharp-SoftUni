@@ -7,11 +7,9 @@ namespace L03_Characters_in_range
         static void Main()
         {
             char firstChar = char.Parse(Console.ReadLine());
-
             char secondChar = char.Parse(Console.ReadLine());
 
             string range = CharactersInRange(firstChar, secondChar);
-
             Console.WriteLine(range);
         }
 

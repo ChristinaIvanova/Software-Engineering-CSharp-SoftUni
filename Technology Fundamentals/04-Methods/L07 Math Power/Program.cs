@@ -7,7 +7,6 @@ namespace L07_Math_Power
         static void Main()
         {
             int number = int.Parse(Console.ReadLine());
-
             int power = int.Parse(Console.ReadLine());
 
             Console.WriteLine(GetPower(number, power)); 

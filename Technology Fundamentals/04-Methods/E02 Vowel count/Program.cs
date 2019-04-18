@@ -7,9 +7,7 @@ namespace E02_Vowel_count
         static void Main()
         {
             string text = Console.ReadLine();
-
             int count = CountVowelsInText(text);
-
             Console.WriteLine(count);
         }
 

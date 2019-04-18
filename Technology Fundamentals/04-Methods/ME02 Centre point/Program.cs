@@ -10,6 +10,7 @@ namespace ME02_Centre_point
             double y1 = double.Parse(Console.ReadLine());
             double x2 = double.Parse(Console.ReadLine());
             double y2 = double.Parse(Console.ReadLine());
+
             string centerPoint=CenterPoint(x1, y1, x2, y2);
             Console.WriteLine(centerPoint);
         }
@@ -18,6 +19,7 @@ namespace ME02_Centre_point
         {
             double distanceFirstPoint = Math.Abs(x1) + Math.Abs(y1);
             double distanceSecondPoint = Math.Abs(x2) + Math.Abs(y2);
+
             if (distanceSecondPoint < distanceFirstPoint)
             {
                 return $"({x2}, {y2})";

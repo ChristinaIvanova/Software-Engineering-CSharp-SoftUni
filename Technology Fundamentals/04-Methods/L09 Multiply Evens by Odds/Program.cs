@@ -7,9 +7,7 @@ namespace L09_Multiply_Evens_by_Odds
         static void Main()
         {
             int number = Math.Abs(int.Parse(Console.ReadLine()));
-
             int sumEvens = GetSumOfEvenDigits(number);
-
             int sumOdds = GetSumOfOddDigits(number);
 
             GetMultiple(sumEvens, sumOdds);          

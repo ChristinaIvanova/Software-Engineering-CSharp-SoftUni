@@ -7,13 +7,10 @@ namespace E05_Add_and_Subtract
         static void Main()
         {
             int firstNumber = int.Parse(Console.ReadLine());
-
             int secondNumber = int.Parse(Console.ReadLine());
-
             int thirdNumber = int.Parse(Console.ReadLine());
 
             int sum = GetSumOfTheFirstTwo(firstNumber,secondNumber);
-
             Console.WriteLine(GetSubtract(thirdNumber,sum));
         }
 

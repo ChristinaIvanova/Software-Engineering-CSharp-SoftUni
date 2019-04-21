@@ -14,3 +14,18 @@
 *.json
 *.targets
 *.props
+/CSharp-Advansed/01-Stacks and Queues/E01 Basic Stack Operations/obj/Debug/netcoreapp2.1
+/CSharp-Advansed/01-Stacks and Queues/E02 Basic Queue Operations/obj/Debug/netcoreapp2.1
+/CSharp-Advansed/01-Stacks and Queues/E03 Maximum and Minimum Element/obj/Debug/netcoreapp2.1
+/CSharp-Advansed/01-Stacks and Queues/E04 Fast Food/obj/Debug/netcoreapp2.1
+/CSharp-Advansed/01-Stacks and Queues/E05 Fashion Boutique/obj/Debug/netcoreapp2.1
+/CSharp-Advansed/01-Stacks and Queues/E06 Auto Repair and Service/obj/Debug/netcoreapp2.1
+/CSharp-Advansed/01-Stacks and Queues/E07 Truck Tour/obj/Debug/netcoreapp2.1
+/CSharp-Advansed/01-Stacks and Queues/E08 Balanced Parentheses/obj/Debug/netcoreapp2.1
+/CSharp-Advansed/01-Stacks and Queues/E09 Simple Text Editor/obj/Debug/netcoreapp2.1
+/CSharp-Advansed/01-Stacks and Queues/L01 Reverse Strings/obj/Debug/netcoreapp2.1
+/CSharp-Advansed/01-Stacks and Queues/L02 Stack Sum/obj/Debug/netcoreapp2.1
+/CSharp-Advansed/01-Stacks and Queues/L03 Simple Calculator/obj/Debug/netcoreapp2.1
+/CSharp-Advansed/01-Stacks and Queues/L04 Matching Brackets/obj/Debug/netcoreapp2.1
+/CSharp-Advansed/01-Stacks and Queues/L07 Hot Potato_/obj/Debug/netcoreapp2.1
+/CSharp-Advansed/01-Stacks and Queues/L08 Traffic Jam/obj/Debug/netcoreapp2.1

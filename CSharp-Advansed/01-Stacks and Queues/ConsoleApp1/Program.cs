@@ -8,16 +8,47 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Queue<int> queue = new Queue<int>();
+            var input = Console.ReadLine();
+            var stack = new Stack<char>();
 
-            queue.Enqueue(1);
-            queue.Enqueue(2);
-            queue.Enqueue(3);
-            var number = queue.Dequeue();
+            bool isBalanced = true;
 
-            Console.WriteLine(number);
-            var a=queue.Peek();
-            Console.WriteLine(a);
+            for (int i = 0; i < input.Length; i++)
+            {
+                var symbol = input[i];
+
+                if (symbol == ')' || symbol == '}' || symbol == ']')
+                {
+                    if (stack.Any())
+                    {
+                        if (stack.Peek() == '(' && symbol == ')' || stack.Peek() == '[' && symbol == ']' || stack.Peek() == '{' && symbol == '}')
+                        {
+                            stack.Pop();
+                        }
+                        else
+                        {
+                            isBalanced = false;
+                        }
+                    }
+                    else
+                    {
+                        isBalanced = false;
+                    }
+                }
+                else
+                {
+                    stack.Push(symbol);
+                }
+            }
+
+            if (isBalanced)
+            {
+                Console.WriteLine("YES");
+            }
+            else
+            {
+                Console.WriteLine("NO");
+            }
         }
     }
 }

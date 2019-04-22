@@ -6,7 +6,7 @@ namespace E09_Simple_Text_Editor
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             int commandCount = int.Parse(Console.ReadLine());
 

@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>E04_Matrix_Shifting_sln_with_jagged</RootNamespace>
+  </PropertyGroup>
+
+</Project>

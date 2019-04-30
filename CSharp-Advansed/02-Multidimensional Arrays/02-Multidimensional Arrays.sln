@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E02 2x2 Squares in Matrix",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E03 Maximum Sum", "E03 Maximum Sum\E03 Maximum Sum.csproj", "{A02DA861-CC53-49A2-9AA9-F0A34DB6D8B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E04 Matrix Shifting", "E04 Matrix Shifting\E04 Matrix Shifting.csproj", "{07553E59-4910-404E-859F-337CD19D1518}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{A02DA861-CC53-49A2-9AA9-F0A34DB6D8B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A02DA861-CC53-49A2-9AA9-F0A34DB6D8B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A02DA861-CC53-49A2-9AA9-F0A34DB6D8B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07553E59-4910-404E-859F-337CD19D1518}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07553E59-4910-404E-859F-337CD19D1518}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07553E59-4910-404E-859F-337CD19D1518}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07553E59-4910-404E-859F-337CD19D1518}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

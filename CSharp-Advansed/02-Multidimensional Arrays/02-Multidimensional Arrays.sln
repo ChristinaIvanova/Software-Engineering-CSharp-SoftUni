@@ -19,13 +19,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L04 Symbol in Matrix", "L04
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E01 Diagonal Difference_", "E01 Diagonal Difference_\E01 Diagonal Difference_.csproj", "{6CC2825F-1FB6-4EA8-BB08-4EDDD4EB67F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E02 2x2 Squares in Matrix", "E02 2x2 Squares in Matrix\E02 2x2 Squares in Matrix.csproj", "{CB7E5C11-BB2E-45BC-80BC-7E8976627CD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E02 2x2 Squares in Matrix", "E02 2x2 Squares in Matrix\E02 2x2 Squares in Matrix.csproj", "{CB7E5C11-BB2E-45BC-80BC-7E8976627CD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E03 Maximum Sum", "E03 Maximum Sum\E03 Maximum Sum.csproj", "{A02DA861-CC53-49A2-9AA9-F0A34DB6D8B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E03 Maximum Sum", "E03 Maximum Sum\E03 Maximum Sum.csproj", "{A02DA861-CC53-49A2-9AA9-F0A34DB6D8B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E04 Matrix Shifting", "E04 Matrix Shifting\E04 Matrix Shifting.csproj", "{07553E59-4910-404E-859F-337CD19D1518}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E04 Matrix Shifting", "E04 Matrix Shifting\E04 Matrix Shifting.csproj", "{07553E59-4910-404E-859F-337CD19D1518}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E04 Matrix Shifting_sln with jagged", "E04 Matrix Shifting_sln with jagged\E04 Matrix Shifting_sln with jagged.csproj", "{29BBDE32-BDE8-4A43-83B6-02A8A072224F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E04 Matrix Shifting_sln with jagged", "E04 Matrix Shifting_sln with jagged\E04 Matrix Shifting_sln with jagged.csproj", "{29BBDE32-BDE8-4A43-83B6-02A8A072224F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E05 Snake Moves", "E05 Snake Moves\E05 Snake Moves.csproj", "{A822CA3E-320C-4B1E-9978-4ECD4A8A9018}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E06 Bomb the Basement", "E06 Bomb the Basement\E06 Bomb the Basement.csproj", "{F8989591-D19E-4FD1-A862-A9F92E5E0CB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +85,14 @@ Global
 		{29BBDE32-BDE8-4A43-83B6-02A8A072224F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29BBDE32-BDE8-4A43-83B6-02A8A072224F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29BBDE32-BDE8-4A43-83B6-02A8A072224F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A822CA3E-320C-4B1E-9978-4ECD4A8A9018}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A822CA3E-320C-4B1E-9978-4ECD4A8A9018}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A822CA3E-320C-4B1E-9978-4ECD4A8A9018}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A822CA3E-320C-4B1E-9978-4ECD4A8A9018}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8989591-D19E-4FD1-A862-A9F92E5E0CB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8989591-D19E-4FD1-A862-A9F92E5E0CB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8989591-D19E-4FD1-A862-A9F92E5E0CB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8989591-D19E-4FD1-A862-A9F92E5E0CB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

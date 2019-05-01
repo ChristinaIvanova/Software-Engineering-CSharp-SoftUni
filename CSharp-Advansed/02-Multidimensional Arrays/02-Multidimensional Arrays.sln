@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E05 Snake Moves", "E05 Snak
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E06 Bomb the Basement", "E06 Bomb the Basement\E06 Bomb the Basement.csproj", "{F8989591-D19E-4FD1-A862-A9F92E5E0CB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E07 Knight Game", "E07 Knight Game\E07 Knight Game.csproj", "{B90CD480-D434-465E-B475-82401F1A8263}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{F8989591-D19E-4FD1-A862-A9F92E5E0CB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8989591-D19E-4FD1-A862-A9F92E5E0CB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8989591-D19E-4FD1-A862-A9F92E5E0CB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B90CD480-D434-465E-B475-82401F1A8263}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B90CD480-D434-465E-B475-82401F1A8263}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B90CD480-D434-465E-B475-82401F1A8263}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B90CD480-D434-465E-B475-82401F1A8263}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

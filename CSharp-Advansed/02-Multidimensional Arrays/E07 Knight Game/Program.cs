@@ -9,6 +9,7 @@ namespace E07_Knight_Game
         {
             int n = int.Parse(Console.ReadLine());
             char[][] matrix = new char[n][];
+
             for (int i = 0; i < matrix.Length; i++)
             {
                 char[] inputRow = Console.ReadLine().ToCharArray();

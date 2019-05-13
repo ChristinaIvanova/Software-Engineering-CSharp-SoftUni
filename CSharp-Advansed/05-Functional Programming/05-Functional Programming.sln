@@ -3,35 +3,43 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L01 Sort Even Numbers", "L01 Sort Even Numbers\L01 Sort Even Numbers.csproj", "{45AA78C8-8CB2-4F59-A336-0BCF6FB18AA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L01 Sort Even Numbers", "L01 Sort Even Numbers\L01 Sort Even Numbers.csproj", "{45AA78C8-8CB2-4F59-A336-0BCF6FB18AA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02 Sum Numbers", "L02 Sum Numbers\L02 Sum Numbers.csproj", "{05D48F26-CE7F-4658-9FF4-9AE1AB26EB55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L02 Sum Numbers", "L02 Sum Numbers\L02 Sum Numbers.csproj", "{05D48F26-CE7F-4658-9FF4-9AE1AB26EB55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L03 Count Uppercase Words", "L03 Count Uppercase Words\L03 Count Uppercase Words.csproj", "{6BE03529-1F1F-4E04-A08F-B7E0A7D43409}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L03 Count Uppercase Words", "L03 Count Uppercase Words\L03 Count Uppercase Words.csproj", "{6BE03529-1F1F-4E04-A08F-B7E0A7D43409}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L03 Count Uppercase Words2", "L03 Count Uppercase Words2\L03 Count Uppercase Words2.csproj", "{863DDB72-9DB9-443B-9DD8-724FC7A0BFA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L03 Count Uppercase Words2", "L03 Count Uppercase Words2\L03 Count Uppercase Words2.csproj", "{863DDB72-9DB9-443B-9DD8-724FC7A0BFA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L04 Add VAT", "L04 Add VAT\L04 Add VAT.csproj", "{7B5A8DE9-19E4-4817-967E-8D5C19A2CE6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L04 Add VAT", "L04 Add VAT\L04 Add VAT.csproj", "{7B5A8DE9-19E4-4817-967E-8D5C19A2CE6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L05 Filter by Age", "L05 Filter by Age\L05 Filter by Age.csproj", "{DA8F4E3B-4400-467B-9C62-3E0C8F8041FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L05 Filter by Age", "L05 Filter by Age\L05 Filter by Age.csproj", "{DA8F4E3B-4400-467B-9C62-3E0C8F8041FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E01 Action Point", "E01 Action Point\E01 Action Point.csproj", "{4591BFAB-A1A3-48FE-9B96-C4B6D96AC568}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E01 Action Point", "E01 Action Point\E01 Action Point.csproj", "{4591BFAB-A1A3-48FE-9B96-C4B6D96AC568}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E02 Knights of Honor", "E02 Knights of Honor\E02 Knights of Honor.csproj", "{BC0C23CA-ACEF-4C5D-B036-7D5DCADB7003}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E02 Knights of Honor", "E02 Knights of Honor\E02 Knights of Honor.csproj", "{BC0C23CA-ACEF-4C5D-B036-7D5DCADB7003}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E03 Custom Min Function", "E03 Custom Min Function\E03 Custom Min Function.csproj", "{802167D3-25D1-40FF-9EA2-87C821806F11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E03 Custom Min Function", "E03 Custom Min Function\E03 Custom Min Function.csproj", "{802167D3-25D1-40FF-9EA2-87C821806F11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E04 Find Evens or Odds", "E04 Find Evens or Odds\E04 Find Evens or Odds.csproj", "{7359C776-0072-40E4-A1A7-3EE2323ED64F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E04 Find Evens or Odds", "E04 Find Evens or Odds\E04 Find Evens or Odds.csproj", "{7359C776-0072-40E4-A1A7-3EE2323ED64F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E05 Applied Arithmetics", "E05 Applied Arithmetics\E05 Applied Arithmetics.csproj", "{E2500373-40DD-4A0C-9CA4-94FCB5F88762}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E05 Applied Arithmetics", "E05 Applied Arithmetics\E05 Applied Arithmetics.csproj", "{E2500373-40DD-4A0C-9CA4-94FCB5F88762}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E05 Applied Arithmetics sol2", "E05 Applied Arithmetics sol2\E05 Applied Arithmetics sol2.csproj", "{B2C5F26D-AA4E-4F7F-94F4-EAAC92E942FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E05 Applied Arithmetics sol2", "E05 Applied Arithmetics sol2\E05 Applied Arithmetics sol2.csproj", "{B2C5F26D-AA4E-4F7F-94F4-EAAC92E942FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E06 Reverse and Exclude", "E06 Reverse and Exclude\E06 Reverse and Exclude.csproj", "{2EF873C0-3E34-43E7-9E20-C94F7B22E9D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E06 Reverse and Exclude", "E06 Reverse and Exclude\E06 Reverse and Exclude.csproj", "{2EF873C0-3E34-43E7-9E20-C94F7B22E9D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E07 Predicate for Names", "E07 Predicate for Names\E07 Predicate for Names.csproj", "{68570AAF-6AE4-4EA1-BC19-66D48CAD0735}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E07 Predicate for Names", "E07 Predicate for Names\E07 Predicate for Names.csproj", "{68570AAF-6AE4-4EA1-BC19-66D48CAD0735}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E08 Custom Comparator", "E08 Custom Comparator\E08 Custom Comparator.csproj", "{5605EBE7-CB22-4EAD-BD6B-B9AF4810B740}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E08 Custom Comparator", "E08 Custom Comparator\E08 Custom Comparator.csproj", "{5605EBE7-CB22-4EAD-BD6B-B9AF4810B740}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E09 List of Predicates", "E09 List of Predicates\E09 List of Predicates.csproj", "{96FAFF07-D5C6-413D-AC3B-C2BBD734F5C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E09 List of Predicates 2", "E09 List of Predicates 2\E09 List of Predicates 2.csproj", "{5721F171-5E81-4237-BAA3-7A646CD47058}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E10 Predicate Party", "E10 Predicate Party\E10 Predicate Party.csproj", "{0A7C5A18-54DE-4C4F-8989-0636EA61F4B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E11 Party Reservation Filter Module", "E11 Party Reservation Filter Module\E11 Party Reservation Filter Module.csproj", "{93832863-307A-4CDF-83E4-B332EE378EB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +107,22 @@ Global
 		{5605EBE7-CB22-4EAD-BD6B-B9AF4810B740}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5605EBE7-CB22-4EAD-BD6B-B9AF4810B740}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5605EBE7-CB22-4EAD-BD6B-B9AF4810B740}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96FAFF07-D5C6-413D-AC3B-C2BBD734F5C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96FAFF07-D5C6-413D-AC3B-C2BBD734F5C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96FAFF07-D5C6-413D-AC3B-C2BBD734F5C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96FAFF07-D5C6-413D-AC3B-C2BBD734F5C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5721F171-5E81-4237-BAA3-7A646CD47058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5721F171-5E81-4237-BAA3-7A646CD47058}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5721F171-5E81-4237-BAA3-7A646CD47058}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5721F171-5E81-4237-BAA3-7A646CD47058}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A7C5A18-54DE-4C4F-8989-0636EA61F4B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A7C5A18-54DE-4C4F-8989-0636EA61F4B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A7C5A18-54DE-4C4F-8989-0636EA61F4B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A7C5A18-54DE-4C4F-8989-0636EA61F4B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93832863-307A-4CDF-83E4-B332EE378EB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93832863-307A-4CDF-83E4-B332EE378EB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93832863-307A-4CDF-83E4-B332EE378EB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93832863-307A-4CDF-83E4-B332EE378EB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

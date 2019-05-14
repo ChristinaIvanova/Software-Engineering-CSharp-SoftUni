@@ -33,13 +33,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E07 Predicate for Names", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E08 Custom Comparator", "E08 Custom Comparator\E08 Custom Comparator.csproj", "{5605EBE7-CB22-4EAD-BD6B-B9AF4810B740}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E09 List of Predicates", "E09 List of Predicates\E09 List of Predicates.csproj", "{96FAFF07-D5C6-413D-AC3B-C2BBD734F5C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E09 List of Predicates", "E09 List of Predicates\E09 List of Predicates.csproj", "{96FAFF07-D5C6-413D-AC3B-C2BBD734F5C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E09 List of Predicates 2", "E09 List of Predicates 2\E09 List of Predicates 2.csproj", "{5721F171-5E81-4237-BAA3-7A646CD47058}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E09 List of Predicates 2", "E09 List of Predicates 2\E09 List of Predicates 2.csproj", "{5721F171-5E81-4237-BAA3-7A646CD47058}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E10 Predicate Party", "E10 Predicate Party\E10 Predicate Party.csproj", "{0A7C5A18-54DE-4C4F-8989-0636EA61F4B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E10 Predicate Party", "E10 Predicate Party\E10 Predicate Party.csproj", "{0A7C5A18-54DE-4C4F-8989-0636EA61F4B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E11 Party Reservation Filter Module", "E11 Party Reservation Filter Module\E11 Party Reservation Filter Module.csproj", "{93832863-307A-4CDF-83E4-B332EE378EB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E11 Party Reservation Filter Module", "E11 Party Reservation Filter Module\E11 Party Reservation Filter Module.csproj", "{93832863-307A-4CDF-83E4-B332EE378EB0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E12 Inferno III", "E12 Inferno III\E12 Inferno III.csproj", "{BB0D78E7-DD58-4828-A532-19AC3CB7150A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,6 +125,10 @@ Global
 		{93832863-307A-4CDF-83E4-B332EE378EB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93832863-307A-4CDF-83E4-B332EE378EB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93832863-307A-4CDF-83E4-B332EE378EB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB0D78E7-DD58-4828-A532-19AC3CB7150A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB0D78E7-DD58-4828-A532-19AC3CB7150A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB0D78E7-DD58-4828-A532-19AC3CB7150A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB0D78E7-DD58-4828-A532-19AC3CB7150A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

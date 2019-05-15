@@ -100,3 +100,7 @@
 /CSharp-Advansed/05-Functional Programming/.vs/05-Functional Programming/v15/Server/sqlite3/storage.ide
 /CSharp-Advansed/05-Functional Programming/.vs/05-Functional Programming/v15/Server/sqlite3/storage.ide-shm
 /CSharp-Advansed/05-Functional Programming/.vs/05-Functional Programming/v15/Server/sqlite3/storage.ide-wal
+/CSharp-Advansed/06-Defining-Classes/.vs/06-Defining-Classes/v15/Server/sqlite3/db.lock
+/CSharp-Advansed/06-Defining-Classes/.vs/06-Defining-Classes/v15/Server/sqlite3/storage.ide
+*.ide-shm
+/CSharp-Advansed/06-Defining-Classes/.vs/06-Defining-Classes/v15/Server/sqlite3/storage.ide-wal

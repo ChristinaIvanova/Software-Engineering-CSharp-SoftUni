@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 
-namespace _10
+namespace _E10_Crossroards
 {
     class Program
     {

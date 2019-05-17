@@ -13,8 +13,9 @@ namespace _E10_Crossroards
 
             var trafficQueue = new Queue<string>();
 
-            var input = Console.ReadLine();
             var totalCarsPassed = 0;
+
+            var input = Console.ReadLine();
 
             while (input != "END")
             {
@@ -35,6 +36,7 @@ namespace _E10_Crossroards
                     }
 
                     var leftWindowTime = freeWindow + currentGreen;
+
                     if (leftWindowTime < 0)
                     {
                         var indexOfHit = car.Length + leftWindowTime;

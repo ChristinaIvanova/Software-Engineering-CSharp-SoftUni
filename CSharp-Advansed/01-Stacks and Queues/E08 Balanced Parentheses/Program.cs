@@ -6,7 +6,7 @@ namespace ConsoleApp1
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             var input = Console.ReadLine();
             var stack = new Stack<char>();
@@ -21,7 +21,8 @@ namespace ConsoleApp1
                 {
                     if (stack.Any())
                     {
-                        if (stack.Peek() == '(' && symbol == ')' || stack.Peek() == '[' && symbol == ']' || stack.Peek() == '{' && symbol == '}')
+                        if (stack.Peek() == '(' && symbol == ')' || stack.Peek() == '[' && symbol == ']' 
+                            || stack.Peek() == '{' && symbol == '}')
                         {
                             stack.Pop();
                         }

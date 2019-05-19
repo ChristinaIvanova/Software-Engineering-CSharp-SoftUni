@@ -16,7 +16,7 @@
 
         public Person GetOldestMember()
         {
-            return this.people.OrderByDescending(x > x.Age).FirstOrDefault();
+            return this.people.OrderByDescending(x => x.Age).FirstOrDefault();
         }
     }
 }

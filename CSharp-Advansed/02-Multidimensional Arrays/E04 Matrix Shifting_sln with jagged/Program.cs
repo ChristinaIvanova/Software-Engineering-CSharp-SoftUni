@@ -29,7 +29,8 @@ namespace E04_Matrix_Shifting
 
             while (input != "END")
             {
-                var tokens = input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                var tokens = input
+                    .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
                 var command = tokens[0];
 

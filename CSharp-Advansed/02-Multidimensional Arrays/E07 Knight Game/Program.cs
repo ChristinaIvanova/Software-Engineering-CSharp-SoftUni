@@ -8,13 +8,13 @@ namespace E07_Knight_Game
         static void Main()
         {
             int n = int.Parse(Console.ReadLine());
-            char[][] matrix = new char[n][];
+            char[][] board = new char[n][];
 
-            for (int i = 0; i < matrix.Length; i++)
+            for (int i = 0; i < board.Length; i++)
             {
                 char[] inputRow = Console.ReadLine().ToCharArray();
-                matrix[i] = new char[n];
-                matrix[i] = inputRow;
+                board[i] = new char[n];
+                board[i] = inputRow;
             }
 
             int currentKnightsInDanger = 0;
@@ -25,83 +25,35 @@ namespace E07_Knight_Game
 
             while (true)
             {
-                for (int rowIndex = 0; rowIndex < matrix.Length; rowIndex++)
+                for (int rowIndex = 0; rowIndex < board.Length; rowIndex++)
                 {
-                    for (int colIndex = 0; colIndex < matrix[rowIndex].Length; colIndex++)
+                    for (int colIndex = 0; colIndex < board[rowIndex].Length; colIndex++)
                     {
-                        if (matrix[rowIndex][colIndex].Equals('K'))
+                        if (board[rowIndex][colIndex].Equals('K'))
                         {
                             // vertical up and left
-                            if (IsCellInMatrix(rowIndex - 2, colIndex - 1, matrix))
-                            {
-                                if (matrix[rowIndex - 2][colIndex - 1].Equals('K'))
-                                {
-                                    currentKnightsInDanger++;
-                                }
-                            }
+                            currentKnightsInDanger += CountKnightsInDanger(board, rowIndex - 2, colIndex - 1);
 
                             // vertical up and right
-                            if (IsCellInMatrix(rowIndex - 2, colIndex + 1, matrix))
-                            {
-                                if (matrix[rowIndex - 2][colIndex + 1].Equals('K'))
-                                {
-                                    currentKnightsInDanger++;
-                                }
-                            }
+                            currentKnightsInDanger += CountKnightsInDanger(board, rowIndex - 2, colIndex + 1);
 
                             // vertical down and left
-                            if (IsCellInMatrix(rowIndex + 2, colIndex - 1, matrix))
-                            {
-                                if (matrix[rowIndex + 2][colIndex - 1].Equals('K'))
-                                {
-                                    currentKnightsInDanger++;
-                                }
-                            }
-
+                            currentKnightsInDanger += CountKnightsInDanger(board, rowIndex + 2, colIndex - 1);
+                           
                             // vertical down and right
-                            if (IsCellInMatrix(rowIndex + 2, colIndex + 1, matrix))
-                            {
-                                if (matrix[rowIndex + 2][colIndex + 1].Equals('K'))
-                                {
-                                    currentKnightsInDanger++;
-                                }
-                            }
-
+                            currentKnightsInDanger += CountKnightsInDanger(board, rowIndex + 2, colIndex + 1);
+                           
                             // horizontal up and left
-                            if (IsCellInMatrix(rowIndex - 1, colIndex - 2, matrix))
-                            {
-                                if (matrix[rowIndex - 1][colIndex - 2].Equals('K'))
-                                {
-                                    currentKnightsInDanger++;
-                                }
-                            }
-
+                            currentKnightsInDanger += CountKnightsInDanger(board, rowIndex - 1, colIndex - 2);
+                           
                             // horizontal up and right
-                            if (IsCellInMatrix(rowIndex - 1, colIndex + 2, matrix))
-                            {
-                                if (matrix[rowIndex - 1][colIndex + 2].Equals('K'))
-                                {
-                                    currentKnightsInDanger++;
-                                }
-                            }
-
+                            currentKnightsInDanger += CountKnightsInDanger(board, rowIndex - 1, colIndex + 2);
+                            
                             // horizontal down and left
-                            if (IsCellInMatrix(rowIndex + 1, colIndex - 2, matrix))
-                            {
-                                if (matrix[rowIndex + 1][colIndex - 2].Equals('K'))
-                                {
-                                    currentKnightsInDanger++;
-                                }
-                            }
-
+                            currentKnightsInDanger += CountKnightsInDanger(board, rowIndex + 1, colIndex - 2);
+                            
                             // horizontal down and right
-                            if (IsCellInMatrix(rowIndex + 1, colIndex + 2, matrix))
-                            {
-                                if (matrix[rowIndex + 1][colIndex + 2].Equals('K'))
-                                {
-                                    currentKnightsInDanger++;
-                                }
-                            }
+                            currentKnightsInDanger += CountKnightsInDanger(board, rowIndex + 1, colIndex + 2);
                         }
 
                         if (currentKnightsInDanger > maxKnightsInDanger)
@@ -115,7 +67,7 @@ namespace E07_Knight_Game
                 }
                 if (maxKnightsInDanger != 0)
                 {
-                    matrix[mostDangerousKnightRow][mostDangerousKnightCol] = 'O';
+                    board[mostDangerousKnightRow][mostDangerousKnightCol] = 'O';
                     count++;
                     maxKnightsInDanger = 0;
                 }
@@ -125,6 +77,21 @@ namespace E07_Knight_Game
                     return;
                 }
             }
+        }
+
+        private static int CountKnightsInDanger(char[][] matrix, int row, int col)
+        {
+            var counKnights = 0;
+
+            if (IsCellInMatrix(row, col, matrix))
+            {
+                if (matrix[row][col].Equals('K'))
+                {
+                    counKnights++;
+                }
+            }
+
+            return counKnights;
         }
 
         public static bool IsCellInMatrix(int row, int col, char[][] matrix)

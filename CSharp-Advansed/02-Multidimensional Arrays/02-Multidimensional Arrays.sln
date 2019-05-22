@@ -37,6 +37,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E08 Bombs", "E08 Bombs\E08 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E09 Miner", "E09 Miner\E09 Miner.csproj", "{FD2137FD-0646-4B59-BCC8-6374CF011205}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E07 Knight Game secondSolution", "E07 Knight Game secondSolution\E07 Knight Game secondSolution.csproj", "{E5B0AC86-A07B-453F-8549-325D251C1377}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E10 Radioactive Mutant", "E10 Radioactive Mutant\E10 Radioactive Mutant.csproj", "{5862A2E4-EA92-44F6-8A09-8D574D7049CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +115,14 @@ Global
 		{FD2137FD-0646-4B59-BCC8-6374CF011205}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD2137FD-0646-4B59-BCC8-6374CF011205}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD2137FD-0646-4B59-BCC8-6374CF011205}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5B0AC86-A07B-453F-8549-325D251C1377}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5B0AC86-A07B-453F-8549-325D251C1377}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5B0AC86-A07B-453F-8549-325D251C1377}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5B0AC86-A07B-453F-8549-325D251C1377}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5862A2E4-EA92-44F6-8A09-8D574D7049CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5862A2E4-EA92-44F6-8A09-8D574D7049CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5862A2E4-EA92-44F6-8A09-8D574D7049CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5862A2E4-EA92-44F6-8A09-8D574D7049CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

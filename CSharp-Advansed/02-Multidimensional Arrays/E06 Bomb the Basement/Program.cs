@@ -33,25 +33,6 @@ namespace E06_Bomb_the_Basement
             Print(matrix);
         }
 
-        private static void FinalBasement(int cols, int[][] matrix)
-        {
-            for (int col = 0; col < cols; col++)
-            {
-                var currentCol = GetColumn(matrix, col);
-                var countBombedCells = currentCol.Where(x => x == 1).Count();
-
-                if (countBombedCells > 0)
-                {
-                    ClearColumn(matrix, col);
-
-                    for (int i = 0; i < countBombedCells; i++)
-                    {
-                        matrix[i][col] = 1;
-                    }
-                }
-            }
-        }
-
         private static void BombedArray(int rows, int cols, int[][] matrix, int[] bomb)
         {
             var bombRow = bomb[0];
@@ -68,6 +49,25 @@ namespace E06_Bomb_the_Basement
                     if (isInRadius)
                     {
                         matrix[row][col] = 1;
+                    }
+                }
+            }
+        }
+
+        private static void FinalBasement(int cols, int[][] matrix)
+        {
+            for (int col = 0; col < cols; col++)
+            {
+                var currentCol = GetColumn(matrix, col);
+                var countBombedCells = currentCol.Where(x => x == 1).Count();
+
+                if (countBombedCells > 0)
+                {
+                    ClearColumn(matrix, col);
+
+                    for (int i = 0; i < countBombedCells; i++)
+                    {
+                        matrix[i][col] = 1;
                     }
                 }
             }
@@ -95,8 +95,5 @@ namespace E06_Bomb_the_Basement
                 Console.WriteLine(string.Join("", row));
             }
         }
-     
     }
-
-
 }

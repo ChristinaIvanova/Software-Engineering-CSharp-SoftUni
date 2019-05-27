@@ -8,9 +8,9 @@ namespace E07_The_V_Logger
     {
         public string Name { get; set; }
 
-        public HashSet<string> Followers { get; set; }
+        public HashSet<string> Followers { get; set; } = new HashSet<string>();
 
-        public HashSet<string> Following { get; set; }
+        public HashSet<string> Followings { get; set; } = new HashSet<string>();
     }
     class Program
     {
@@ -38,26 +38,19 @@ namespace E07_The_V_Logger
 
                             vloggers.Add(vlogger);
 
-                            var indexOfVlogger = vloggers.FindIndex(x => x.Name == name);
-                            vloggers[indexOfVlogger].Followers = new HashSet<string>();
-                            vloggers[indexOfVlogger].Following = new HashSet<string>();
                         }
                         break;
                     case "followed":
                         var userToFollow = vloggersPart[2];
 
-                        var existingVlogger = vloggers.FirstOrDefault(x => x.Name == userToFollow);
+                        var existingVloggerToFollow = vloggers.FirstOrDefault(x => x.Name == userToFollow);
 
-                        if (name != userToFollow)
+                        if (existingUser != null && existingVloggerToFollow != null
+                           && name != userToFollow)
                         {
-                            if (existingUser != null && existingVlogger != null)
-                            {
-                                var indexOfExistingUser = vloggers.FindIndex(x => x.Name == name);
-                                vloggers[indexOfExistingUser].Following.Add(userToFollow);
+                            existingUser.Followings.Add(userToFollow);
 
-                                var indexOfUserToFollow = vloggers.FindIndex(x => x.Name == userToFollow);
-                                vloggers[indexOfUserToFollow].Followers.Add(name);
-                            }
+                            existingVloggerToFollow.Followers.Add(name);
                         }
                         break;
                 }
@@ -70,26 +63,26 @@ namespace E07_The_V_Logger
 
         private static void PrintTheVLoggers(List<Vlogger> vloggers)
         {
+            vloggers = vloggers
+               .OrderByDescending(x => x.Followers.Count)
+               .ThenBy(x => x.Followings.Count)
+               .ToList();
+
             var totalVloggrers = vloggers.Count();
             Console.WriteLine($"The V-Logger has a total of {totalVloggrers} vloggers in its logs.");
 
             var count = 1;
 
-            foreach (var vlogger in vloggers
-                .OrderByDescending(x => x.Followers.Count)
-                .ThenBy(x => x.Following.Count))
+            foreach (var vlogger in vloggers)
             {
+                Console.WriteLine($"{count}. {vlogger.Name} : {vlogger.Followers.Count} followers, {vlogger.Followings.Count} following");
+
                 if (count == 1)
                 {
-                    Console.WriteLine($"{count}. {vlogger.Name} : {vlogger.Followers.Count} followers, {vlogger.Following.Count} following");
                     foreach (var follower in vlogger.Followers.OrderBy(x => x))
                     {
                         Console.WriteLine($"*  {follower}");
                     }
-                }
-                else
-                {
-                    Console.WriteLine($"{count}. {vlogger.Name} : {vlogger.Followers.Count} followers, {vlogger.Following.Count} following");
                 }
 
                 count++;

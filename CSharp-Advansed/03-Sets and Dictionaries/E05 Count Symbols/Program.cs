@@ -8,14 +8,12 @@ namespace E05_Count_Symbols
     {
         static void Main()
         {
-            var symbols = new Dictionary<char, int>();
+            var symbols = new SortedDictionary<char, int>();
 
             var text = Console.ReadLine();
 
-            for (int i = 0; i < text.Length; i++)
+            foreach (char symbol in text)
             {
-                var symbol = text[i];
-
                 if (!symbols.ContainsKey(symbol))
                 {
                     symbols[symbol] = 0;
@@ -24,12 +22,9 @@ namespace E05_Count_Symbols
                 symbols[symbol]++;
             }
 
-            foreach (var kvp in symbols.OrderBy(x => x.Key))
+            foreach (var symbol in symbols)
             {
-                var symbol = kvp.Key;
-                var repeatedTimes = kvp.Value;
-
-                Console.WriteLine($"{symbol}: {repeatedTimes} time/s");
+                Console.WriteLine($"{symbol.Key}: {symbol.Value} time/s");
             }
         }
     }

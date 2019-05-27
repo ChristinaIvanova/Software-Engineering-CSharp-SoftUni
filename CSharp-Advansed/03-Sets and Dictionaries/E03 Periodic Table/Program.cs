@@ -8,7 +8,7 @@ namespace E03_Periodic_Table
     {
         static void Main()
         {
-            var compounds = new SortedSet<string>();
+            var elements = new SortedSet<string>();
             var numberOfLines = int.Parse(Console.ReadLine());
 
             for (int i = 0; i < numberOfLines; i++)
@@ -19,12 +19,12 @@ namespace E03_Periodic_Table
                 for (int j = 0; j < line.Length; j++)
                 {
                     var compound = line[j];
-                    compounds.Add(compound);
+                    elements.Add(compound);
                 }
             }
 
-            var compounsInString = string.Join(" ", compounds);
-            Console.WriteLine(compounsInString);
+            var uniqueElements = string.Join(" ", elements);
+            Console.WriteLine(uniqueElements);
         }
     }
 }

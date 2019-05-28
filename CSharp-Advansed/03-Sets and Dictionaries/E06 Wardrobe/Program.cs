@@ -10,26 +10,17 @@ namespace E06_Wardrobe
         {
             var clothesInWardrobe = new Dictionary<string, Dictionary<string, int>>();
 
-            var n = int.Parse(Console.ReadLine());
+            var lines = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < lines; i++)
             {
                 var clothesPart = Console.ReadLine()
                     .Split(new[] { " -> " }, StringSplitOptions.RemoveEmptyEntries);
 
                 var colour = clothesPart[0];
-                var clothes = new List<string>();
-
-                if (clothesPart[1].Contains(","))
-                {
-                    clothes = clothesPart[1]
+                var clothes = clothesPart[1]
                         .Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries)
                         .ToList();
-                }
-                else
-                {
-                    clothes = clothesPart[1].Split().ToList();
-                }
 
                 if (!clothesInWardrobe.ContainsKey(colour))
                 {

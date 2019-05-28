@@ -27,13 +27,13 @@ namespace E06_Wardrobe
                     clothesInWardrobe[colour] = new Dictionary<string, int>();
                 }
 
-                for (int j = 0; j < clothes.Count; j++)
+                foreach (var item in clothes)
                 {
-                    if (!clothesInWardrobe[colour].ContainsKey(clothes[j]))
+                    if (!clothesInWardrobe[colour].ContainsKey(item))
                     {
-                        clothesInWardrobe[colour][clothes[j]] = 0;
+                        clothesInWardrobe[colour][item] = 0;
                     }
-                    clothesInWardrobe[colour][clothes[j]]++;
+                    clothesInWardrobe[colour][item]++;
                 }
             }
 

@@ -27,18 +27,18 @@ namespace E06_Full_Directory_Traversal
                 extensionFileInfo[info.Extension].Add(info);
             }
 
-            var pathToDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+"/Report.txt";
+            var pathToDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/Report.txt";
 
             using (var writer = new StreamWriter(pathToDesktop))
             {
-                foreach (var kvp in extensionFileInfo.OrderByDescending(x=>x.Value.Count)
-                    .ThenBy(x=>x.Key))
+                foreach (var kvp in extensionFileInfo.OrderByDescending(x => x.Value.Count)
+                    .ThenBy(x => x.Key))
                 {
                     var ext = kvp.Key;
                     var info = kvp.Value;
 
                     writer.WriteLine(ext);
-                    foreach (var fileInfo in info.OrderByDescending(x=>x.Length))
+                    foreach (var fileInfo in info.OrderByDescending(x => x.Length))
                     {
                         var name = fileInfo.Name;
                         var size = fileInfo.Length / 1024;

@@ -8,8 +8,8 @@
     {
         static void Main()
         {
-            string[] linesFirstFile = File.ReadAllLines("FileOne.txt");
-            string[] linesSecondFile = File.ReadAllLines("FileTwo.txt");
+            string[] linesFirstFile = File.ReadAllLines("../../../FileOne.txt");
+            string[] linesSecondFile = File.ReadAllLines("../../../FileTwo.txt");
 
             var resultText = new List<string>();
 
@@ -27,7 +27,7 @@
                 }
             }
 
-            File.WriteAllLines("MergedFile.txt", resultText);
+            File.WriteAllLines("../../../MergedFile.txt", resultText);
         }
     }
 }

@@ -17,9 +17,11 @@ namespace E08_Custom_Comparator
             (a % 2 == 0 && b % 2 != 0) ? -1 :
             (a % 2 != 0 && b % 2 == 0) ? 1 :
             a.CompareTo(b);
-            
-            Array.Sort(numbers, new Comparison<int>(sortFunc));
-     
+
+            // Array.Sort(numbers, new Comparison<int>(sortFunc));
+
+            Array.Sort(numbers, (a, b) => sortFunc(a, b));
+
             Console.WriteLine(string.Join(" ", numbers));
         }
     }

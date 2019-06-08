@@ -9,9 +9,9 @@ namespace E12_Inferno_III
         static void Main()
         {
             List<int> numbers = Console.ReadLine()
-                .Split()
-                .Select(int.Parse)
-                .ToList();
+                 .Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries)
+                 .Select(int.Parse)
+                 .ToList();
 
             List<int> active = Enumerable.Range(0, numbers.Count).ToList();
             List<int> current = new List<int>(active);
@@ -23,24 +23,19 @@ namespace E12_Inferno_III
             a == numbers.Count - 1 ? numbers[a] == b : numbers[a] + numbers[a + 1] == b;
 
             Func<int, int, bool> sumLeftRight = (a, b) =>
-            a == 0 ? numbers[a] + numbers[a + 1] == b : a == numbers.Count - 1 ? numbers[a] + numbers[a - 1] == b
-            : numbers.Count == 1 ? numbers[0] == b : numbers[a] + numbers[a - 1] + numbers[a + 1] == b;
+            numbers.Count == 1 ? numbers[0] == b
+            : a == 0 ? numbers[a] + numbers[a + 1] == b
+            : a == numbers.Count - 1 ? numbers[a] + numbers[a - 1] == b
+            : numbers[a] + numbers[a - 1] + numbers[a + 1] == b;
 
-            while (true)
+            var input = Console.ReadLine();
+
+            while (input != "Forge")
             {
-                var input = Console.ReadLine();
-
-                if (input == "Forge")
-                {
-                    var result = string.Join
-                        (" ", numbers.Where((n, index) => active.Contains(index)));
-                    Console.WriteLine(result);
-                    break;
-                }
-
                 var filtered = new List<int>();
 
-                var tokens = input.Split(';');
+                var tokens = input
+                    .Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
 
                 var command = tokens[0];
                 var filterType = tokens[1];
@@ -68,7 +63,13 @@ namespace E12_Inferno_III
                         active.AddRange(filtered);
                         break;
                 }
+
+                input = Console.ReadLine();
             }
+
+            var result = string.Join
+                       (" ", numbers.Where((n, index) => active.Contains(index)));
+            Console.WriteLine(result);
         }
     }
 }

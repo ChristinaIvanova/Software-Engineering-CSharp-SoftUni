@@ -17,7 +17,7 @@
                 var tokens = input
                     .Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries)
                     .ToArray();
-
+                
                 var trainerName = tokens[0];
                 var pokemonName = tokens[1];
                 var element = tokens[2];

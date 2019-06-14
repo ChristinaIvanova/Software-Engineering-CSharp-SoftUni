@@ -52,6 +52,7 @@ namespace _02_Tron_Racers
                 matrix[secondPlayerRow][secondPlayerCol] = 's';
 
             }
+            var a = 5;
 
             foreach (var item in matrix)
             {

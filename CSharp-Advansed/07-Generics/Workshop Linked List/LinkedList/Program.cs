@@ -6,7 +6,7 @@ namespace LinkedList
     {
         static void Main()
         {
-            var node = new DoublyLinkedList();
+            var node = new DoublyLinkedList<int>();
 
             node.AddHead(5);
             node.AddHead(10);
@@ -39,7 +39,7 @@ namespace LinkedList
             Console.WriteLine(node.Count == 4);
             Console.WriteLine((int)node.Head == 5);
             Console.WriteLine((int)node.Tail == 10);
-            node.ForEach(Console.WriteLine,false);
+            node.ForEach(Console.WriteLine, false);
 
             node.RemoveTail();
 
@@ -51,7 +51,7 @@ namespace LinkedList
             node.RemoveHead();
             node.RemoveHead();
             node.RemoveTail();
-            
+
             Console.WriteLine(node.Count == 0);
 
             try

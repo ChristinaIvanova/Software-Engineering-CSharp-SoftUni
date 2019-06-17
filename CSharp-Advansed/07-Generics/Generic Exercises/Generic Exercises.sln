@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E01 Generic Box of String", "E01 Generic Box of String\E01 Generic Box of String.csproj", "{3F7E04E0-24EE-4ABE-BB98-996EE28D08EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E01 Generic Box of String", "E01 Generic Box of String\E01 Generic Box of String.csproj", "{3F7E04E0-24EE-4ABE-BB98-996EE28D08EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E02 Generic Box of Integer", "E02 Generic Box of Integer\E02 Generic Box of Integer.csproj", "{713A6FAD-C891-4715-AD23-AAF17B5C7F33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E02 Generic Box of Integer", "E02 Generic Box of Integer\E02 Generic Box of Integer.csproj", "{713A6FAD-C891-4715-AD23-AAF17B5C7F33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E03 Generic Swap Method Strings", "E03 Generic Swap Method Strings\E03 Generic Swap Method Strings.csproj", "{E2178E5F-7BF6-4879-84C4-167DB960E5C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E03 Generic Swap Method Strings", "E03 Generic Swap Method Strings\E03 Generic Swap Method Strings.csproj", "{E2178E5F-7BF6-4879-84C4-167DB960E5C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E05 Generic Count Method String", "E05 Generic Count Method String\E05 Generic Count Method String.csproj", "{012544DE-FAF6-456E-B272-631CCF59178D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E05 Generic Count Method String", "E05 Generic Count Method String\E05 Generic Count Method String.csproj", "{012544DE-FAF6-456E-B272-631CCF59178D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E07 Tuple", "E07 Tuple\E07 Tuple.csproj", "{193AFA15-683E-4086-8593-74CF8036C2E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E07 Tuple", "E07 Tuple\E07 Tuple.csproj", "{193AFA15-683E-4086-8593-74CF8036C2E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E08 Threeuple", "E08 Threeuple\E08 Threeuple.csproj", "{260DE810-80D5-49A0-A10F-0C8F66ABC86D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{193AFA15-683E-4086-8593-74CF8036C2E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{193AFA15-683E-4086-8593-74CF8036C2E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{193AFA15-683E-4086-8593-74CF8036C2E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{260DE810-80D5-49A0-A10F-0C8F66ABC86D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{260DE810-80D5-49A0-A10F-0C8F66ABC86D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{260DE810-80D5-49A0-A10F-0C8F66ABC86D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{260DE810-80D5-49A0-A10F-0C8F66ABC86D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -20,7 +20,7 @@ namespace E08_Threeuple
 
             string personName = secondInput[0];
             int litersOfBeer = int.Parse(secondInput[1]);
-            string condition = secondInput[2];
+            string condition = secondInput[2] == "drunk" ? "True" : "False";
 
             var secondTuple = new Threeuple<string, int, string>(personName, litersOfBeer, condition);
 

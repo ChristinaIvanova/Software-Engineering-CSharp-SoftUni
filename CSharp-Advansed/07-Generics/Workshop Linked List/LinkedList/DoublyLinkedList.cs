@@ -4,17 +4,18 @@
     using System.Collections.Generic;
     using System.Text;
 
-    public class DoublyLinkedList
+    public class DoublyLinkedList<T>
+        where T : IComparable<T>
     {
         private class ListNode
         {
-            public object Value { get; set; }
+            public T Value { get; set; }
 
             public ListNode Next { get; set; }
 
             public ListNode Previous { get; set; }
 
-            public ListNode(object value)
+            public ListNode(T value)
             {
                 this.Value = value;
             }
@@ -23,7 +24,7 @@
         private ListNode head;
         private ListNode tail;
 
-        public object Head
+        public T Head
         {
             get
             {
@@ -33,7 +34,7 @@
             }
         }
 
-        public object Tail
+        public T Tail
         {
             get
             {
@@ -44,7 +45,7 @@
 
         public int Count { get; private set; }
 
-        public void AddHead(object value)
+        public void AddHead(T value)
         {
             var newNode = new ListNode(value);
 
@@ -63,7 +64,7 @@
         }
 
 
-        public void AddTail(object value)
+        public void AddTail(T value)
         {
             var newNode = new ListNode(value);
 
@@ -81,7 +82,7 @@
             Count++;
         }
 
-        public object RemoveHead()
+        public T RemoveHead()
         {
             this.ValidateIfListIsEmpty();
 
@@ -105,7 +106,7 @@
             return value;
         }
 
-        public object RemoveTail()
+        public T RemoveTail()
         {
             this.ValidateIfListIsEmpty();
             var value = this.tail.Value;
@@ -138,7 +139,7 @@
         //    }
         //}
 
-        public void ForEach(Action<object> action, bool reverse = false)
+        public void ForEach(Action<T> action, bool reverse = false)
         {
             var currentNode = reverse ? this.tail : this.head;
 
@@ -150,9 +151,20 @@
             }
         }
 
-        public object[] ToArray()
+        public void Print(Action<T> action)
         {
-            var arr = new object[this.Count];
+            ListNode currentNode = this.head;
+
+            while (currentNode != null)
+            {
+                action(currentNode.Value);
+                currentNode = currentNode.Next;
+            }
+        }
+
+        public T[] ToArray()
+        {
+            var arr = new T[this.Count];
 
             var currentNode = this.head;
             int index = 0;
@@ -167,7 +179,22 @@
             return arr;
         }
 
-        public void Remove(object value)
+        public List<T> ToList()
+        {
+            List<T> list = new List<T>(this.Count);
+
+            var currentNode = this.head;
+
+            while (currentNode != null)
+            {
+                list.Add(currentNode.Value);
+                currentNode = currentNode.Next;
+            }
+
+            return list;
+        }
+
+        public void Remove(T value)
         {
             var currentNode = this.head;
 
@@ -205,13 +232,13 @@
             currentNode = currentNode.Next;
         }
 
-        public bool Contains(object value)
+        public bool Contains(T value)
         {
             var currentNode = this.head;
 
             while (currentNode != null)
             {
-                if (currentNode.Value.Equals(value))
+                if (currentNode.Value.CompareTo(value) == 0)
                 {
                     return true;
                 }

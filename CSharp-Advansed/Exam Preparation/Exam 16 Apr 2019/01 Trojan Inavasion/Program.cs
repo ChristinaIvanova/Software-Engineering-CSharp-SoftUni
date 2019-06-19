@@ -2,55 +2,56 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace _01_Trojan_Inavasion
+namespace _01_Catapult_Attack
 {
     class Program
     {
         static void Main()
         {
-            var wavesCount = int.Parse(Console.ReadLine());
+            var waves = int.Parse(Console.ReadLine());
 
-            var platesArgs = Console.ReadLine()
+            var platesInput = Console.ReadLine()
                 .Split(" ", StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse);
 
-            var plates = new Queue<int>(platesArgs);
+            var plates = new Stack<int>(platesInput.Reverse());
             var warriors = new Stack<int>();
 
-
-
-            for (int i = 1; i <= wavesCount; i++)
+            for (int i = 1; i <= waves; i++)
             {
-                var input = Console.ReadLine();
+                var warriorsInput = Console.ReadLine()
+                   .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                   .Select(int.Parse);
 
                 if (i % 3 == 0)
                 {
-                    var additionalPlate = Console.ReadLine();
-                    plates.Enqueue(int.Parse(additionalPlate));
+                    var additionalWall = int.Parse(Console.ReadLine());
+                    plates.Push(additionalWall);
                 }
 
-                var wave = input
-                .Split(" ", StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse);
+                warriorsInput.ToList().ForEach(x => warriors.Push(x));
 
-                wave.ToList().ForEach(warriors.Push);
-
-                var plate = plates.Peek();
-                var warrior = 0;
-
-                while (plate > 0 && warriors.Any())
+                while (plates.Any() && warriors.Any())
                 {
-                    warrior = warriors.Pop();
-                    plate -= warrior;
+                    var currentWarrior = warriors.Pop();
+                    var currentPlate = plates.Peek();
+
+                    if (currentWarrior > currentPlate)
+                    {
+                        warriors.Push(currentWarrior - currentPlate);
+                        plates.Pop();
+                    }
+                    else if (currentWarrior == currentPlate)
+                    {
+                        plates.Pop();
+                    }
+                    else if (currentWarrior < currentPlate)
+                    {
+                        plates.Pop();
+                        plates.Push(currentPlate - currentWarrior);
+                    }
                 }
 
-                plates.Dequeue();
-
-                if (plate < 0)
-                {
-                    warriors.Push(Math.Abs(plate));
-                }
-                
                 if (plates.Count == 0)
                 {
                     break;
@@ -59,11 +60,10 @@ namespace _01_Trojan_Inavasion
 
             if (warriors.Any())
             {
-
-                var leftWarriors = string.Join(", ", warriors);
+                var leftwarriors = string.Join(", ", warriors);
 
                 Console.WriteLine($"The Trojans successfully destroyed the Spartan defense.");
-                Console.WriteLine($"Warriors left: {leftWarriors}");
+                Console.WriteLine($"Warriors left: {leftwarriors}");
             }
             else
             {

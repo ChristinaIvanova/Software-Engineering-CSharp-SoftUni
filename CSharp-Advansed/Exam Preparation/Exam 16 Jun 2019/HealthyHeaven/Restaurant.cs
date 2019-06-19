@@ -50,6 +50,7 @@ namespace HealthyHeaven
             var menu = new StringBuilder();
 
             menu.AppendLine($"{Name} have {this.Data.Count} salads:");
+
             if (this.Data.Any())
             {
                 foreach (var salad in Data)
@@ -57,8 +58,7 @@ namespace HealthyHeaven
                     menu.Append(salad.ToString());
                 }
             }
-
-
+            
             return menu.ToString().TrimEnd();
         }
     }

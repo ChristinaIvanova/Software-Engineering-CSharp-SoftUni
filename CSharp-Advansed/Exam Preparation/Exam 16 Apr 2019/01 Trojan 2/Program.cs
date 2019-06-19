@@ -14,15 +14,14 @@ namespace _01_Trojan_2
                 .Split(" ", StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse)
                 .ToList();
-            
+
             var warriors = new Stack<int>();
 
             for (int i = 1; i <= waves; i++)
             {
-                var rocksInput = Console.ReadLine()
+                var warrorsInput = Console.ReadLine()
                    .Split(" ", StringSplitOptions.RemoveEmptyEntries)
-                   .Select(int.Parse)
-                   .ToList();
+                   .Select(int.Parse);
 
                 if (i % 3 == 0)
                 {
@@ -30,25 +29,25 @@ namespace _01_Trojan_2
                     plates.Add(additionalWall);
                 }
 
-                rocksInput.ForEach(x => warriors.Push(x));
+                warrorsInput.ToList().ForEach(x => warriors.Push(x));
 
                 while (plates.Any() && warriors.Any())
                 {
-                    var currentRock = warriors.Pop();
-                    var currentWall = plates[0];
+                    var currentWarrior = warriors.Pop();
+                    var currentPlate = plates[0];
 
-                    if (currentRock > currentWall)
+                    if (currentWarrior > currentPlate)
                     {
-                        warriors.Push(currentRock - currentWall);
+                        warriors.Push(currentWarrior - currentPlate);
                         plates.RemoveAt(0);
                     }
-                    else if (currentRock == currentWall)
+                    else if (currentWarrior == currentPlate)
                     {
                         plates.RemoveAt(0);
                     }
-                    else if (currentRock < currentWall)
+                    else if (currentWarrior < currentPlate)
                     {
-                        plates[0]=currentWall - currentRock;
+                        plates[0] = currentPlate - currentWarrior;
                     }
                 }
 
@@ -60,16 +59,17 @@ namespace _01_Trojan_2
 
             if (warriors.Any())
             {
-                var leftRocks = string.Join(", ", warriors);
+                var leftwarriors = string.Join(", ", warriors);
 
                 Console.WriteLine($"The Trojans successfully destroyed the Spartan defense.");
-                Console.WriteLine($"Warriors left: {leftRocks}");
+                Console.WriteLine($"Warriors left: {leftwarriors}");
             }
             else
             {
-                var leftWalls = string.Join(", ", plates);
+                var leftPlates = string.Join(", ", plates);
+
                 Console.WriteLine($"The Spartans successfully repulsed the Trojan attack.");
-                Console.WriteLine($"Plates left: {leftWalls}");
+                Console.WriteLine($"Plates left: {leftPlates}");
             }
         }
     }

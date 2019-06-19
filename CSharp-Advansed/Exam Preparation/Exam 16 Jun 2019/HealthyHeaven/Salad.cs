@@ -45,7 +45,6 @@ namespace HealthyHeaven
             }
 
             return sb.ToString().TrimEnd();
-
         }
     }
 }

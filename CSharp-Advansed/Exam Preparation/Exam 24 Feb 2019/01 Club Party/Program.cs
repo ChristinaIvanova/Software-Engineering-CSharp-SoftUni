@@ -11,72 +11,40 @@ namespace _01_Club_Party
         {
             var capacity = int.Parse(Console.ReadLine());
 
-            var halls = new Queue<string>();
-            var reservations = new Queue<int>();
-
-            var removedHalls = new Dictionary<string, List<int>>();
-            var readyReservations = new List<int>();
-
             var input = Console.ReadLine()
                 .Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
-            var currentCapacity = capacity;
+            var elements = new Stack<string>(input);
+            var halls = new Queue<string>();
+            var allGroups = new List<int>();
 
-            for (int i = input.Length - 1; i >= 0; i--)
+            var currentCapacity = 0;
+
+            while (elements.Count > 0)
             {
-                var isNumeric = int.TryParse(input[i], out int people);
+                var current = elements.Pop();
+
+                var isNumeric = int.TryParse(current, out int people);
 
                 if (!isNumeric)
                 {
-                    halls.Enqueue(input[i]);
+                    halls.Enqueue(current);
                 }
-
-                if (isNumeric && halls.Any())
+                else if (isNumeric && halls.Any())
                 {
-                    reservations.Enqueue(people);
-                }
-
-                if (halls.Any() && reservations.Any())
-                {
-                    var currentHall = halls.Peek();
-                    var currentReservation = reservations.Peek();
-
-                    if (currentReservation < currentCapacity)
+                    if (currentCapacity + people > capacity)
                     {
-                        currentCapacity -= currentReservation;
-                        reservations.Dequeue();
-
-                        readyReservations.Add(currentReservation);
-                    }
-                    else if (currentReservation > currentCapacity)
-                    {
-                        halls.Dequeue();
-                        currentCapacity = capacity;
-                        removedHalls.Add(currentHall, readyReservations);
-                        readyReservations = new List<int>();
+                        Console.WriteLine($"{halls.Dequeue()} -> {string.Join(", ", allGroups)}");
+                        allGroups.Clear();
+                        currentCapacity = 0;
                     }
 
-                    else if (currentReservation == currentCapacity)
+                    if (halls.Any())
                     {
-                        reservations.Dequeue();
-                        readyReservations.Add(currentReservation);
-
-                        halls.Dequeue();
-                        currentCapacity = capacity;
-                        removedHalls.Add(currentHall, readyReservations);
-                        readyReservations = new List<int>();
-                    }
-
-                    if (!halls.Any() && reservations.Any())
-                    {
-                        reservations.Dequeue();
+                        allGroups.Add(people);
+                        currentCapacity += people;
                     }
                 }
-            }
-
-            foreach (var hall in removedHalls)
-            {
-                Console.WriteLine($"{hall.Key} -> {string.Join(", ", hall.Value)}");
             }
         }
     }

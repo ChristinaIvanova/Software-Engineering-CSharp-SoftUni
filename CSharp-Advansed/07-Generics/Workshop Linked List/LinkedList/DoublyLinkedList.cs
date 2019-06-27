@@ -1,10 +1,11 @@
 ﻿namespace LinkedList
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Text;
 
-    public class DoublyLinkedList<T>
+    public class DoublyLinkedList<T>:IEnumerable<T>
         where T : IComparable<T>
     {
         private class ListNode
@@ -263,5 +264,20 @@
                 throw new InvalidOperationException("LinkedList is empty.");
             }
         }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            var currentNode = this.head;
+
+            while (currentNode!=null)
+            {
+                yield return currentNode.Value;
+
+                currentNode = currentNode.Next;
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        => this.GetEnumerator();
     }
 }

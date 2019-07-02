@@ -4,8 +4,7 @@ using System.Linq;
 
 namespace P05_GreedyTimes
 {
-
-    public class Potato
+    public class SatrtUp
     {
         static void Main(string[] args)
         {

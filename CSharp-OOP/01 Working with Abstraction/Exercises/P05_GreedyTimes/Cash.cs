@@ -4,7 +4,7 @@ using System.Text;
 
 namespace P05_GreedyTimes
 {
-    public class Cash:TreasureItem
+    public class Cash : TreasureItem
     {
         public Cash(string item, long amount)
         {

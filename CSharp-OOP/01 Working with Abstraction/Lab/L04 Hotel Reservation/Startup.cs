@@ -6,21 +6,12 @@ namespace L04HotelReservation
     {
         static void Main()
         {
-            var priceCalculator = new PriceCalculator();
+            var input = Console.ReadLine()
+                       .Split();
 
-            var reservationArgs = Console.ReadLine()
-                .Split(" ", StringSplitOptions.RemoveEmptyEntries);
-
-            var pricePerDay = decimal.Parse(reservationArgs[0]);
-            var days = int.Parse(reservationArgs[1]);
-            var season 
-            var discount = reservationArgs[3];
-
-            if (season==Season.Spring)
-            {
-
-            }
-            priceCalculator.CalculatePrice(pricePerDay, days, season, discount);
+            var priceCalculator = new PriceCalculator(input);
+            
+            Console.WriteLine(priceCalculator.GetTotalPrice().ToString("F2"));
         }
     }
 }

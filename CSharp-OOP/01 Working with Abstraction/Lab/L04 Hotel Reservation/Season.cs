@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace L04_Hotel_Reservation
+namespace L04HotelReservation
 {
-    class SeasonMultiplier
+    public enum Season
     {
+        Autumn = 1,
+        Spring,
+        Winter,
+        Summer
     }
 }

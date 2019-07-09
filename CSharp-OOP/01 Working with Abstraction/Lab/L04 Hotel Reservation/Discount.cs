@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace L04_Hotel_Reservation
+namespace L04HotelReservation
 {
-    class Discount
+    public enum Discount
     {
+        None,
+        SecondVisit = 10,
+        VIP = 20
     }
 }

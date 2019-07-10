@@ -55,7 +55,7 @@ namespace FootballTeam.Models
 
         public override string ToString()
         {
-            if (this.players.Count==0)
+            if (this.players.Count == 0)
             {
                 return $"{this.Name} - 0";
             }

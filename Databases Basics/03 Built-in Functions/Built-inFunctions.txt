@@ -42,13 +42,13 @@ SELECT [Name]
  FROM Towns
 WHERE LEN([Name]) IN (5, 6)
 ORDER BY [Name]
+
+
+/*****************************************************
 Problem 6.	 Find Towns Starting With
 Write a SQL query to find all towns that start with letters M, K, B or E. Order them alphabetically by town name. 
 Example
-TownID	Name
-5	Bellevue
-31	Berlin
-30	Bordeaux
+/*****************************************************
 SELECT [TownID], [Name]
 FROM Towns
 WHERE [Name] LIKE 'M%' OR 
@@ -57,103 +57,92 @@ WHERE [Name] LIKE 'M%' OR
       [NAME] LIKE 'E%'
 ORDER BY [Name]
 
-???:
+----Another solution
 SELECT [TownID], [Name]
 FROM Towns
 WHERE LEFT([Name],1) IN ('M', 'K', 'B', 'E')
 ORDER BY [Name]
+-------
 
-???:
+----Another solution
 SELECT [TownID], [Name]
  FROM Towns
 WHERE [Name] LIKE '[MKBE]%'
 ORDER BY [Name]
+------
+
+
+/*****************************************************
 Problem 7.	 Find Towns Not Starting With
 Write a SQL query to find all towns that does not start with letters R, B or D. Order them alphabetically by name. 
 Example
-TownID	Name
-2	Calgary
-23	Cambridge
-15	Carnation
+/*****************************************************
 SELECT [TownID], [Name]
  FROM Towns
 WHERE [Name] NOT LIKE '[RBD]%'
 ORDER BY [Name]
 
-???:
+----Another solution
 SELECT [TownID], [Name]
  FROM Towns
 WHERE [Name] LIKE '[^RBD]%'
 ORDER BY [Name]
+------
 
-???:
+----Another solution
 SELECT [TownID], [Name]
 FROM Towns
 WHERE LEFT([Name],1) NOT IN ('R', 'B', 'D')
 ORDER BY [Name]
+----
 
+
+/*****************************************************
 Problem 8.	Create View Employees Hired After 2000 Year
 Write a SQL query to create view V_EmployeesHiredAfter2000 with first and last name to all employees hired after 2000 year. 
-Example
-FirstName	LastName
-Steven	Selikoff
-Peter	Krebs
-Stuart	Munson
+/*****************************************************
 CREATE VIEW V_EmployeesHiredAfter2000 AS
 SELECT [FirstName], [LastName]
  FROM Employees
 WHERE DATEPART(YEAR, HireDate) > 2000
+
+
+/*****************************************************
 Problem 9.	Length of Last Name
 Write a SQL query to find the names of all employees whose last name is exactly 5 characters long.
-Example
-FirstName	LastName
-Kevin	Brown
-Terri	Duffy
-Jo	Brown
-Diane	Glimp
+/*****************************************************
 SELECT [FirstName], [LastName]
  FROM Employees
 WHERE LEN(LastName) = 5
+
+
+/*****************************************************
 Problem 10.	
 Rank Employees by Salary
 Write a query that ranks all employees using DENSE_RANK. In the DENSE_RANK function, employees need to be partitioned by Salary and ordered by EmployeeID. You need to find only the employees whose Salary is between 10000 and 50000 and order them by Salary in descending order.
-Example
-EmployeeID	FirstName	LastName	Salary	Rank
-268	Stephen	Jiang	48100.00	1
-284	Amy	Alberts	48100.00	2
-288	Syed	Abbas	48100.00	3
+/*****************************************************
 SELECT [EmployeeID], [FirstName], [LastName], [Salary], 
        DENSE_RANK() OVER (PARTITION BY Salary ORDER BY EmployeeID) AS [Rank]
  FROM Employees
 WHERE Salary BETWEEN 10000 AND 50000
 ORDER BY Salary DESC
-268	Stephen	Jiang	48100.00	1
-284	Amy	Alberts	48100.00	2
-288	Syed	Abbas	       48100.00     3
-291	Svetlin	Nakov	48000.00	1
-292	Martin	Kulov	       48000.00     2
-293	George	Denchev	48000.00	3
-71	Wendy	Kahn	       43300.00	1
-3	Roberto Tamburello	42676.48	1
-217	Michael	Raheem	42500.00	1
-79	Diane	Margheim	40900.00	1
-114	Gigi	Matthew	40900.00	2
-150	Stephanie	Conroy	39128.32	1
-......
+
+
+/*****************************************************
 Problem 11.	Find All Employees with Rank 2 *
 Use the query from the previous problem and upgrade it, so that it finds only the employees whose Rank is 2 and again, order them by Salary (descending).
-Example
-EmployeeID	FirstName	LastName	Salary	Rank
-284	Amy	Alberts	48100.00	2
-292	Martin	Kulov	48000.00	2
-71	Wendy	Kahn	43300.00	2
-SELECT * FROM (
-SELECT [EmployeeID], [FirstName], [LastName], [Salary], 
-DENSE_RANK() OVER (PARTITION BY Salary ORDER BY EmployeeID) AS [Rank]
-FROM Employees
-WHERE Salary BETWEEN 10000 AND 50000) AS Sorted
+/*****************************************************
+SELECT * 
+FROM (
+       SELECT [EmployeeID], [FirstName], [LastName], [Salary], 
+              DENSE_RANK() OVER (PARTITION BY Salary ORDER BY EmployeeID) AS [Rank]
+       FROM Employees
+       WHERE Salary BETWEEN 10000 AND 50000) AS Sorted
 WHERE SorteD.Rank = 2
 ORDER BY Salary DESC
+
+
+/*****************************************************
 Problem 12.	Countries Holding ‘A’ 3 or More Times
 Find all countries that holds the letter 'A' in their name at least 3 times (case insensitively), sorted by ISO code. Display the country name and ISO code. 
 Example

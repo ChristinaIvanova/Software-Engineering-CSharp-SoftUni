@@ -1,16 +1,15 @@
 --01. DDL
-
 CREATE TABLE Subjects
 (
 Id INT PRIMARY KEY IDENTITY NOT NULL,
-Name NVARCHAR(20) NOT NULL,
-Lessons INT NOT NULL,
+[Name] NVARCHAR(20) NOT NULL,
+Lessons INT CHECK(Lessons > 0) NOT NULL,
 )
 
 CREATE TABLE Exams
 (
 Id INT PRIMARY KEY IDENTITY NOT NULL,
-Date DATE,
+[Date] DATE,
 SubjectId INT FOREIGN KEY REFERENCES Subjects(Id)
 )
 
@@ -21,8 +20,8 @@ FirstName NVARCHAR(20) NOT NULL,
 MiddleName NVARCHAR(20),
 LastName NVARCHAR(20) NOT NULL,
 Age INT NOT NULL CHECK (Age > 0),
-Address NVARCHAR(30),
-Phone NVARCHAR(10)
+[Address] NVARCHAR(30),
+Phone CHAR(10)
 )
 
 CREATE TABLE Teachers
@@ -30,8 +29,8 @@ CREATE TABLE Teachers
 Id INT PRIMARY KEY IDENTITY NOT NULL,
 FirstName NVARCHAR(20) NOT NULL,
 LastName NVARCHAR(20) NOT NULL,
-Address NVARCHAR(20) NOT NULL,
-Phone NVARCHAR(10),
+[Address] NVARCHAR(20) NOT NULL,
+Phone CHAR(10),
 SubjectId INT FOREIGN KEY REFERENCES Subjects(Id)
 )
 
@@ -39,7 +38,7 @@ CREATE TABLE StudentsExams
 (
 StudentId INT NOT NULL,
 ExamId INT NOT NULL,
-Grade DECIMAL(15,2) NOT NULL CHECK (Grade >= 2 AND Grade <= 6),
+Grade DECIMAL(3,2) NOT NULL CHECK (Grade >= 2 AND Grade <= 6),
 
 CONSTRAINT PK_StudentsExams PRIMARY KEY (StudentId, ExamId),
 
@@ -49,7 +48,6 @@ CONSTRAINT FK_StudentsExams_Exams FOREIGN KEY (ExamId) REFERENCES Exams (Id),
 
 CREATE TABLE StudentsTeachers
 (
-
 StudentId INT NOT NULL,
 TeacherId INT NOT NULL,
 
@@ -63,7 +61,7 @@ CREATE TABLE StudentsSubjects
 Id INT PRIMARY KEY IDENTITY,
 StudentId INT NOT NULL,
 SubjectId INT NOT NULL,
-Grade DECIMAL(15,2) NOT NULL  CHECK (Grade >= 2 AND Grade <= 6),
+Grade DECIMAL(3,2) NOT NULL  CHECK (Grade >= 2 AND Grade <= 6),
 
 CONSTRAINT FK_StudentsSubjects_Students FOREIGN KEY (StudentId) REFERENCES Students (Id),
 CONSTRAINT FK_StudentsSubjects_Subjects FOREIGN KEY (SubjectId) REFERENCES Subjects (Id),
@@ -163,7 +161,7 @@ ORDER BY k.Quarter
 --Fourth quarter, Q4: 1 October – 31 December (92 days)
 GO
 --17. Exam Grades To Update
-CREATE FUNCTION udf_ExamGradesToUpdate(@studentId INT, @grade DECIMAL(15,2))
+CREATE FUNCTION udf_ExamGradesToUpdate(@studentId INT, @Grade DECIMAL(3,2))
 RETURNS NVARCHAR(MAX)
 AS
 BEGIN
@@ -178,7 +176,7 @@ BEGIN
 RETURN ('Grade cannot be above 6.00!')
 END
 DECLARE @studentFirstName NVARCHAR(20) = (SELECT TOP(1) FirstName FROM Students WHERE Id = @studentId);
-DECLARE @biggestGrade DECIMAL(15,2) = @grade + 0.50;
+DECLARE @biggestGrade DECIMAL(3,2) = @grade + 0.50;
 DECLARE @count INT = (SELECT Count(Grade) FROM StudentsExams
 WHERE StudentId = @studentId AND Grade >= @grade AND Grade <= @biggestGrade)
 RETURN ('You have to update ' + CAST(@count AS nvarchar(10)) + ' grades for the student ' + @studentFirstName)

@@ -15,7 +15,7 @@ namespace SoftUni
         {
             var context = new SoftUniContext();
 
-            var result = GetEmployeesInPeriod(context);
+            var result = GetAddressesByTown(context);
 
             Console.WriteLine(result);
         }
@@ -131,6 +131,7 @@ namespace SoftUni
             return sb.ToString().TrimEnd();
         }
 
+        //Problem 07
         public static string GetEmployeesInPeriod(SoftUniContext context)
         {
             var sb = new StringBuilder();
@@ -163,11 +164,38 @@ namespace SoftUni
                     var endDate = project.EndDate == null ?
                         "not finished" :
                         project.EndDate.Value.ToString("M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture);
-                    
+
                     sb.AppendLine($"--{project.Name} - {startDate} - {endDate}");
                     //sb.AppendLine(
                     //  $"--{project.Name} - {project.StartDate:MM/dd/yyyy} {project.StartDate:h:mm:ss tt} - {(project.EndDate == null ? "not finished" : $"{project.EndDate:MM/dd/yyyy} {project.EndDate:h:mm:ss tt}")}");
                 }
+            }
+
+            return sb.ToString().TrimEnd();
+        }
+
+        //Problem 08
+        public static string GetAddressesByTown(SoftUniContext context)
+        {
+            var sb = new StringBuilder();
+
+            var addresses = context
+                .Addresses
+                .OrderByDescending(a => a.Employees.Count)
+                .ThenBy(a => a.Town.Name)
+                .ThenBy(a => a.AddressText)
+                .Select(a => new
+                {
+                    AddressText = a.AddressText,
+                    TownName = a.Town.Name,
+                    EmployeeCount = a.Employees.Count
+                })
+                .Take(10)
+                .ToList();
+
+            foreach (var address in addresses)
+            {
+                sb.AppendLine($"{address.AddressText}, {address.TownName} - {address.EmployeeCount} employees");
             }
 
             return sb.ToString().TrimEnd();

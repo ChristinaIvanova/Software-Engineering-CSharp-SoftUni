@@ -14,7 +14,7 @@ namespace SoftUni
         {
             var context = new SoftUniContext();
 
-            var result = GetEmployeesByFirstNameStartingWithSa(context);
+            var result = RemoveTown(context);
 
             Console.WriteLine(result);
         }
@@ -358,6 +358,61 @@ namespace SoftUni
             }
 
             return sb.ToString().TrimEnd();
+        }
+
+        //Problem 14
+        public static string DeleteProjectById(SoftUniContext context)
+        {
+            var sb = new StringBuilder();
+
+            var targetProject = context.Projects.FirstOrDefault(p => p.ProjectId == 2);
+            var targetEmployeeProject = context.EmployeesProjects.FirstOrDefault(ep => ep.ProjectId == 2);
+
+            context.EmployeesProjects.Remove(targetEmployeeProject);
+            context.Projects.Remove(targetProject);
+
+            context.SaveChanges();
+
+            var projects = context.Projects
+                .Select(p => new
+                {
+                    p.Name
+                })
+                .Take(10)
+                .ToList();
+
+            foreach (var project in projects)
+            {
+                sb.AppendLine(project.Name);
+            }
+
+            return sb.ToString().TrimEnd();
+        }
+
+        //Problem 15
+        public static string RemoveTown(SoftUniContext context)
+        {
+            var sb=new StringBuilder();
+
+            var targetTown = context.Towns.FirstOrDefault(t => t.Name == "Seattle");
+            var targetAddresses = context.Addresses
+                .Where(a => a.Town.Name == "Seattle")
+                .ToList();
+
+            context
+                .Employees.
+                Where(e=>e.Address.Town.Name=="Seattle")
+                .ToList()
+                .ForEach(e=>e.AddressId=null);
+
+            context.Addresses.RemoveRange(targetAddresses);
+            context.Towns.Remove(targetTown);
+
+            context.SaveChanges();
+
+            sb.AppendLine($"{targetAddresses.Count} addresses in Seattle were deleted");
+
+           return sb.ToString().TrimEnd();
         }
     }
 }

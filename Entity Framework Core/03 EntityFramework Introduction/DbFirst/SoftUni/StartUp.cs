@@ -392,18 +392,20 @@ namespace SoftUni
         //Problem 15
         public static string RemoveTown(SoftUniContext context)
         {
-            var sb=new StringBuilder();
+            var sb = new StringBuilder();
 
             var targetTown = context.Towns.FirstOrDefault(t => t.Name == "Seattle");
-            var targetAddresses = context.Addresses
+
+            var targetAddresses = context
+                .Addresses
                 .Where(a => a.Town.Name == "Seattle")
                 .ToList();
 
             context
-                .Employees.
-                Where(e=>e.Address.Town.Name=="Seattle")
+                .Employees
+                .Where(e => e.Address.Town.Name == "Seattle")
                 .ToList()
-                .ForEach(e=>e.AddressId=null);
+                .ForEach(e => e.AddressId = null);
 
             context.Addresses.RemoveRange(targetAddresses);
             context.Towns.Remove(targetTown);
@@ -412,7 +414,7 @@ namespace SoftUni
 
             sb.AppendLine($"{targetAddresses.Count} addresses in Seattle were deleted");
 
-           return sb.ToString().TrimEnd();
+            return sb.ToString().TrimEnd();
         }
     }
 }

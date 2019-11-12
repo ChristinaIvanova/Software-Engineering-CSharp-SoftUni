@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using BookShop.Models.Enums;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookShop
 {
@@ -18,7 +19,7 @@ namespace BookShop
 
                 //var input = int.Parse(Console.ReadLine());
 
-                var result = GetMostRecentBooks(db);
+                var result = RemoveBooks(db);
                 Console.WriteLine(result);
             }
         }
@@ -241,11 +242,11 @@ namespace BookShop
                    c.Name,
                    Books = c.CategoryBooks
                        .Select(b => new
-                   {
-                       b.Book.Title,
-                       b.Book.ReleaseDate,
-                       b.Book.ReleaseDate.Value.Year
-                   })
+                       {
+                           b.Book.Title,
+                           b.Book.ReleaseDate,
+                           b.Book.ReleaseDate.Value.Year
+                       })
                         .OrderByDescending(b => b.ReleaseDate)
                         .Take(3)
                         .ToList()
@@ -260,6 +261,28 @@ namespace BookShop
             }
 
             return sb.ToString().TrimEnd();
+        }
+
+        public static void IncreasePrices(BookShopContext context)
+        {
+            context.Books
+                .Where(b => b.ReleaseDate.Value.Year < 2010)
+                .ToList()
+                .ForEach(b => b.Price += 5);
+
+            context.SaveChanges();
+        }
+
+        public static int RemoveBooks(BookShopContext context)
+        {
+            var booksToRemove = context.Books
+                .Where(b => b.Copies < 4200)
+                .ToList();
+
+            context.Books.RemoveRange(booksToRemove); //context.RemoveRange(booksToRemove);
+            context.SaveChanges();
+
+            return booksToRemove.Count;
         }
     }
 }

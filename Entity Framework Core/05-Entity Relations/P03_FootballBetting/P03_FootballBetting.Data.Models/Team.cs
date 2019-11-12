@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace P03_FootballBetting.Data.Models
 {
-  public  class Team
+    public class Team
     {
         [Key]
         public int TeamId { get; set; }

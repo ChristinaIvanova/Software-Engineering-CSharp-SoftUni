@@ -24,6 +24,7 @@ namespace BookShop
             }
         }
 
+        //Problem 01
         public static string GetBooksByAgeRestriction(BookShopContext context, string command)
         {
             var books = context
@@ -36,6 +37,7 @@ namespace BookShop
             return string.Join(Environment.NewLine, books);
         }
 
+        //Problem 02
         public static string GetGoldenBooks(BookShopContext context)
         {
             var sb = new StringBuilder();
@@ -52,6 +54,7 @@ namespace BookShop
             return sb.ToString().TrimEnd();
         }
 
+        //Problem 03
         public static string GetBooksByPrice(BookShopContext context)
         {
             var sb = new StringBuilder();
@@ -75,6 +78,7 @@ namespace BookShop
             return sb.ToString().TrimEnd();
         }
 
+        //Problem 04
         public static string GetBooksNotReleasedIn(BookShopContext context, int year)
         {
             var sb = new StringBuilder();
@@ -91,6 +95,7 @@ namespace BookShop
             return sb.ToString().TrimEnd();
         }
 
+        //Problem 05
         public static string GetBooksByCategory(BookShopContext context, string input)
         {
             var sb = new StringBuilder();
@@ -110,6 +115,7 @@ namespace BookShop
             return sb.ToString().TrimEnd();
         }
 
+        //Problem 06
         public static string GetBooksReleasedBefore(BookShopContext context, string date)
         {
             var sb = new StringBuilder();
@@ -135,6 +141,7 @@ namespace BookShop
             return sb.ToString().TrimEnd();
         }
 
+        //Problem 07
         public static string GetAuthorNamesEndingIn(BookShopContext context, string input)
         {
             var sb = new StringBuilder();
@@ -150,6 +157,7 @@ namespace BookShop
             return sb.ToString().TrimEnd();
         }
 
+        //Problem 08
         public static string GetBookTitlesContaining(BookShopContext context, string input)
         {
             var sb = new StringBuilder();
@@ -165,6 +173,7 @@ namespace BookShop
             return sb.ToString().TrimEnd();
         }
 
+        //Problem 09
         public static string GetBooksByAuthor(BookShopContext context, string input)
         {
             var sb = new StringBuilder();
@@ -180,6 +189,7 @@ namespace BookShop
             return sb.ToString().TrimEnd();
         }
 
+        //Problem 10
         public static int CountBooks(BookShopContext context, int lengthCheck)
         {
             return context.Books
@@ -188,6 +198,7 @@ namespace BookShop
                 .Count();
         }
 
+        //Problem 11
         public static string CountCopiesByAuthor(BookShopContext context)
         {
             var sb = new StringBuilder();
@@ -209,6 +220,7 @@ namespace BookShop
             return sb.ToString().TrimEnd();
         }
 
+        //Problem 12
         public static string GetTotalProfitByCategory(BookShopContext context)
         {
             var sb = new StringBuilder();
@@ -231,6 +243,7 @@ namespace BookShop
             return sb.ToString().TrimEnd();
         }
 
+        //Problem 13
         public static string GetMostRecentBooks(BookShopContext context)
         {
             var sb = new StringBuilder();
@@ -263,6 +276,7 @@ namespace BookShop
             return sb.ToString().TrimEnd();
         }
 
+        //Problem 14
         public static void IncreasePrices(BookShopContext context)
         {
             context.Books
@@ -273,6 +287,7 @@ namespace BookShop
             context.SaveChanges();
         }
 
+        //Problem 15
         public static int RemoveBooks(BookShopContext context)
         {
             var booksToRemove = context.Books

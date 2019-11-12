@@ -18,7 +18,7 @@ namespace BookShop
 
                 //var input = int.Parse(Console.ReadLine());
 
-                var result = CountCopiesByAuthor(db);
+                var result = GetTotalProfitByCategory(db);
                 Console.WriteLine(result);
             }
         }
@@ -197,12 +197,34 @@ namespace BookShop
                     Name = a.FirstName + " " + a.LastName,
                     TotalCopies = a.Books.Sum(b => b.Copies)
                 })
-                .OrderByDescending(a=>a.TotalCopies)
+                .OrderByDescending(a => a.TotalCopies)
                 .ToList();
 
             foreach (var author in authors)
             {
                 sb.AppendLine($"{author.Name} - {author.TotalCopies}");
+            }
+
+            return sb.ToString().TrimEnd();
+        }
+
+        public static string GetTotalProfitByCategory(BookShopContext context)
+        {
+            var sb = new StringBuilder();
+
+            var categories = context.Categories
+                .Select(c => new
+                {
+                    c.Name,
+                    Profit = c.CategoryBooks.Sum(b => b.Book.Price * b.Book.Copies),
+                })
+                .OrderByDescending(c => c.Profit)
+                .ThenBy(c => c.Name)
+                .ToList();
+
+            foreach (var category in categories)
+            {
+                sb.AppendLine($"{category.Name} ${category.Profit:f2}");
             }
 
             return sb.ToString().TrimEnd();

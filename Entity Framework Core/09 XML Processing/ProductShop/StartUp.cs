@@ -20,9 +20,9 @@ namespace ProductShop
                 //db.Database.EnsureDeleted();
                 //db.Database.EnsureCreated();
 
-                var inputXml = File.ReadAllText("./../../../Datasets/products.xml");
+                var inputXml = File.ReadAllText("./../../../Datasets/categories.xml");
 
-                var result = ImportProducts(db, inputXml);
+                var result = ImportCategories(db, inputXml);
                 Console.WriteLine(result);
 
             }
@@ -65,6 +65,28 @@ namespace ProductShop
             }
 
             context.Products.AddRange(products);
+            var count = context.SaveChanges();
+
+            return $"Successfully imported {count}";
+        }
+
+        //Problem 03
+        public static string ImportCategories(ProductShopContext context, string inputXml)
+        {
+            var xmlSerializer = new XmlSerializer(typeof(List<ImportCategoryDto>),
+                new XmlRootAttribute("Categories"));
+
+            var categoriesDto = (List<ImportCategoryDto>)xmlSerializer.Deserialize(new StringReader(inputXml));
+
+            var categories = new List<Category>();
+
+            foreach (var categoryDto in categoriesDto)
+            {
+                var category = Mapper.Map<Category>(categoryDto);
+                categories.Add(category);
+            }
+
+            context.Categories.AddRange(categories);
             var count = context.SaveChanges();
 
             return $"Successfully imported {count}";

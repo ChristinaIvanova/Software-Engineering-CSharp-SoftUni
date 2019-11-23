@@ -26,7 +26,7 @@ namespace ProductShop
 
                 //var inputXml = File.ReadAllText("./../../../Datasets/categories-products.xml");
 
-                var result = GetSoldProducts(db);
+                var result = GetCategoriesByProductsCount(db);
                 Console.WriteLine(result);
 
             }
@@ -150,6 +150,7 @@ namespace ProductShop
             return sb.ToString().TrimEnd();
         }
 
+        //Problem 06
         public static string GetSoldProducts(ProductShopContext context)
         {
             var users = context.Users
@@ -178,6 +179,33 @@ namespace ProductShop
             var namespaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
 
             xmlSerializer.Serialize(new StringWriter(sb), users, namespaces);
+
+            return sb.ToString().TrimEnd();
+        }
+
+        //Problem 07
+        public static string GetCategoriesByProductsCount(ProductShopContext context)
+        {
+            var categories = context.Categories
+                .Select(c => new CategoryDto
+                {
+                    Name = c.Name,
+                    Count = c.CategoryProducts.Count(),
+                    AveragePrice = c.CategoryProducts.Average(p => p.Product.Price),
+                    TotalRevenue = c.CategoryProducts.Sum(p => p.Product.Price)
+                })
+                .OrderByDescending(c => c.Count)
+                .ThenBy(c => c.TotalRevenue)
+                .ToList();
+
+            var xmlSerializer = new XmlSerializer(typeof(List<CategoryDto>),
+                new XmlRootAttribute("Categories"));
+
+            var sb = new StringBuilder();
+
+            var namespaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
+
+            xmlSerializer.Serialize(new StringWriter(sb), categories, namespaces);
 
             return sb.ToString().TrimEnd();
         }

@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
 namespace ProductShop.Dtos.Import
 {
     [XmlType("CategoryProduct")]
-   public class ImportCategoryProductDto
+    public class ImportCategoryProductDto
     {
-        [XmlElement("categoryId")]
+      //  [XmlElement("CategoryId")]
         public int CategoryId { get; set; }
 
-        [XmlElement("productId")]
+       // [XmlElement("ProductId")]
         public int ProductId { get; set; }
     }
 }

@@ -26,7 +26,7 @@ namespace ProductShop
 
                 //var inputXml = File.ReadAllText("./../../../Datasets/categories-products.xml");
 
-                var result = GetCategoriesByProductsCount(db);
+                var result = GetUsersWithProducts(db);
                 Console.WriteLine(result);
 
             }
@@ -206,6 +206,50 @@ namespace ProductShop
             var namespaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
 
             xmlSerializer.Serialize(new StringWriter(sb), categories, namespaces);
+
+            return sb.ToString().TrimEnd();
+        }
+
+        //Problem 08
+        public static string GetUsersWithProducts(ProductShopContext context)
+        {
+            var users = context.Users
+                .Where(u => u.ProductsSold.Any())
+                .OrderByDescending(u => u.ProductsSold.Count())
+                .Select(u => new UserSoldProductCountDto
+                {
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    Age = u.Age,
+                    SoldProducts = new SoldProductsCountDto
+                    {
+                        Count = u.ProductsSold.Count(),
+                        Products = u.ProductsSold.Select(p => new ProductSoldDto
+                        {
+                            Name = p.Name,
+                            Price = p.Price
+                        })
+                        .OrderByDescending(p => p.Price)
+                        .ToArray()
+                    }
+                })
+                .Take(10)
+                .ToArray();
+
+            var result = new UsersAndProductDto
+            {
+                Count = context.Users.Count(u => u.ProductsSold.Any()),
+                Users = users
+            };
+
+            var xmlSerializer = new XmlSerializer(typeof(UsersAndProductDto),
+                new XmlRootAttribute("Users"));
+
+            var sb = new StringBuilder();
+
+            var namespaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
+
+            xmlSerializer.Serialize(new StringWriter(sb), result, namespaces);
 
             return sb.ToString().TrimEnd();
         }

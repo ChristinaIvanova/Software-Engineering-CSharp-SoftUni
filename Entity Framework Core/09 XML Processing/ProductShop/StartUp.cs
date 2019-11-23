@@ -26,7 +26,7 @@ namespace ProductShop
 
                 //var inputXml = File.ReadAllText("./../../../Datasets/categories-products.xml");
 
-                var result = GetProductsInRange(db);
+                var result = GetSoldProducts(db);
                 Console.WriteLine(result);
 
             }
@@ -144,8 +144,40 @@ namespace ProductShop
 
             var sb = new StringBuilder();
 
-            var namespaces = new XmlSerializerNamespaces(new [] { XmlQualifiedName.Empty });
+            var namespaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
             xmlSerializer.Serialize(new StringWriter(sb), products, namespaces);
+
+            return sb.ToString().TrimEnd();
+        }
+
+        public static string GetSoldProducts(ProductShopContext context)
+        {
+            var users = context.Users
+                .Where(u => u.ProductsSold.Any())
+                .Select(u => new UserSoldDto
+                {
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    ProductsSold = u.ProductsSold.Select(p => new ProductSoldDto
+                    {
+                        Name = p.Name,
+                        Price = p.Price
+                    })
+                    .ToArray()
+                })
+                .OrderBy(u => u.LastName)
+                .ThenBy(u => u.FirstName)
+                .Take(5)
+                .ToList();
+
+            var xmlSerializer = new XmlSerializer(typeof(List<UserSoldDto>),
+                new XmlRootAttribute("Users"));
+
+            var sb = new StringBuilder();
+
+            var namespaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
+
+            xmlSerializer.Serialize(new StringWriter(sb), users, namespaces);
 
             return sb.ToString().TrimEnd();
         }

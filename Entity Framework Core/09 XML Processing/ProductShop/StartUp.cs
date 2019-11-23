@@ -20,9 +20,9 @@ namespace ProductShop
                 //db.Database.EnsureDeleted();
                 //db.Database.EnsureCreated();
 
-                var inputXml = File.ReadAllText("./../../../Datasets/categories.xml");
+                var inputXml = File.ReadAllText("./../../../Datasets/categories-products.xml");
 
-                var result = ImportCategories(db, inputXml);
+                var result = ImportCategoryProducts(db, inputXml);
                 Console.WriteLine(result);
 
             }
@@ -87,6 +87,34 @@ namespace ProductShop
             }
 
             context.Categories.AddRange(categories);
+            var count = context.SaveChanges();
+
+            return $"Successfully imported {count}";
+        }
+
+        //Problem 04
+        public static string ImportCategoryProducts(ProductShopContext context, string inputXml)
+        {
+            var xmlSerializer = new XmlSerializer(typeof(List<ImportCategoryProductDto>),
+                new XmlRootAttribute("CategoryProducts"));
+
+            var categoryProductsDto = (List<ImportCategoryProductDto>)xmlSerializer.Deserialize(new StringReader(inputXml));
+
+            var categoryProducts = new List<CategoryProduct>();
+
+            foreach (var dto in categoryProductsDto)
+            {
+                var existingCategory = context.Categories.Find(dto.CategoryId);
+                var existingProduct = context.Products.Find(dto.ProductId);
+
+                if (existingCategory != null && existingProduct != null)
+                {
+                    var categoryProduct = Mapper.Map<CategoryProduct>(dto);
+                    categoryProducts.Add(categoryProduct);
+                }
+            }
+
+            context.CategoryProducts.AddRange(categoryProducts);
             var count = context.SaveChanges();
 
             return $"Successfully imported {count}";

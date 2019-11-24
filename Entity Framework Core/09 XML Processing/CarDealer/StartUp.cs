@@ -25,7 +25,7 @@ namespace CarDealer
                 //db.Database.EnsureCreated();
 
                 //var inputXml = File.ReadAllText("./../../../Datasets/sales.xml");
-                var result = GetCarsFromMakeBmw(db);
+                var result = GetCarsWithTheirListOfParts(db);
 
                 Console.WriteLine(result);
             }
@@ -191,15 +191,14 @@ namespace CarDealer
         {
             var cars = context.Cars
                 .Where(c => c.Make == "BMW")
-                
+                .OrderBy(c => c.Model)
+                .ThenByDescending(c => c.TravelledDistance)
                 .Select(c => new CarBmwDto
                 {
                     Id = c.Id,
                     Model = c.Model,
                     TravelledDistance = c.TravelledDistance
                 })
-                .OrderBy(c => c.Model)
-                .ThenByDescending(c => c.TravelledDistance)
                 .ToArray();
 
             var xmlSerializer = new XmlSerializer(typeof(CarBmwDto[]),
@@ -207,8 +206,63 @@ namespace CarDealer
 
             var sb = new StringBuilder();
 
-            var namespaces = new XmlSerializerNamespaces(new XmlQualifiedName[] { XmlQualifiedName.Empty });
-            xmlSerializer.Serialize(new StringWriter(sb),cars,namespaces );
+            var namespaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
+            xmlSerializer.Serialize(new StringWriter(sb), cars, namespaces);
+
+            return sb.ToString().TrimEnd();
+        }
+
+        public static string GetLocalSuppliers(CarDealerContext context)
+        {
+            var suppliers = context.Suppliers
+                .Where(s => s.IsImporter == false)
+                .Select(s => new LocalSupplierDto
+                {
+                    Id = s.Id,
+                    Name = s.Name,
+                    PartsCount = s.Parts.Count
+                })
+                .ToArray();
+
+            var xmlSerializer = new XmlSerializer(typeof(LocalSupplierDto[]), new XmlRootAttribute("suppliers"));
+
+            var sb = new StringBuilder();
+
+            var namespaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
+
+            xmlSerializer.Serialize(new StringWriter(sb), suppliers, namespaces);
+
+            return sb.ToString().TrimEnd();
+        }
+
+        public static string GetCarsWithTheirListOfParts(CarDealerContext context)
+        {
+            var cars = context.Cars
+                .Select(c => new CarWithPartsDto()
+                {
+                    Make = c.Make,
+                    Model = c.Model,
+                    TravelledDistance = c.TravelledDistance,
+                    Parts = c.PartCars.Select(p => new PartDtoExport
+                    {
+                        Name = p.Part.Name,
+                        Price = p.Part.Price
+                    })
+                        .OrderByDescending(p => p.Price)
+                        .ToArray()
+                })
+                .OrderByDescending(c => c.TravelledDistance)
+                .ThenBy(c => c.Model)
+                .Take(5)
+                .ToArray();
+
+            var xmlSerializer = new XmlSerializer(typeof(CarWithPartsDto[]), new XmlRootAttribute("cars"));
+
+            var sb = new StringBuilder();
+
+            var namespaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
+
+            xmlSerializer.Serialize(new StringWriter(sb), cars, namespaces);
 
             return sb.ToString().TrimEnd();
         }

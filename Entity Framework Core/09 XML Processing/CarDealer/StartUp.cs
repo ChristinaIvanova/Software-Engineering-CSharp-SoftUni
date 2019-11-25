@@ -25,7 +25,7 @@ namespace CarDealer
                 //db.Database.EnsureCreated();
 
                 //var inputXml = File.ReadAllText("./../../../Datasets/sales.xml");
-                var result = GetSalesWithAppliedDiscount(db);
+                var result = GetLocalSuppliers(db);
 
                 Console.WriteLine(result);
             }
@@ -224,7 +224,8 @@ namespace CarDealer
                 })
                 .ToArray();
 
-            var xmlSerializer = new XmlSerializer(typeof(LocalSupplierDto[]), new XmlRootAttribute("suppliers"));
+            var xmlSerializer = new XmlSerializer(typeof(LocalSupplierDto[]), 
+                new XmlRootAttribute("suppliers"));
 
             var sb = new StringBuilder();
 
@@ -306,7 +307,7 @@ namespace CarDealer
                     Customer = s.Customer.Name,
                     Price = s.Car.PartCars.Sum(p => p.Part.Price),
                     PriceWithDiscount = s.Car.PartCars.Sum(p => p.Part.Price) -
-                                        s.Car.PartCars.Sum(p => p.Part.Price)*s.Discount/100
+                                        s.Car.PartCars.Sum(p => p.Part.Price) * s.Discount / 100
 
                 })
                 .ToArray();

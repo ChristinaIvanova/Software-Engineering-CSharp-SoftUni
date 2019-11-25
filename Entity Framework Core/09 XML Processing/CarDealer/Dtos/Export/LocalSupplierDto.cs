@@ -2,16 +2,16 @@
 
 namespace CarDealer.Dtos.Export
 {
-    [XmlType("supplier")]
+    [XmlType("suplier")]
     public class LocalSupplierDto
     {
-        [XmlAttribute(AttributeName = "id")]
+        [XmlAttribute("id")]
         public int Id { get; set; }
 
-        [XmlAttribute(AttributeName = "name")]
+        [XmlAttribute("name")]
         public string Name { get; set; }
 
-        [XmlAttribute(AttributeName = "parts-count")]
+        [XmlAttribute("parts-count")]
         public int PartsCount { get; set; }
     }
 }

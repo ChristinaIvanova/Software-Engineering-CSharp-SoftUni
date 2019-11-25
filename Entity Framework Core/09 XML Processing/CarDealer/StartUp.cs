@@ -83,33 +83,41 @@ namespace CarDealer
                 new XmlRootAttribute("Cars"));
 
             var cars = new List<Car>();
+            var partCars = new List<PartCar>();
 
             var carsDto = (List<CarDto>)xmlSerializer.Deserialize(new StringReader(inputXml));
 
             foreach (var carDto in carsDto)
             {
-                var car = Mapper.Map<Car>(carDto);
-                context.Cars.Add(car);
-
-                foreach (var part in carDto.Parts.PartsIdDto)
+                var car = new Car()
                 {
-                    if (context.Parts.Find(part.PartId) != null &&
-                        car.PartCars.FirstOrDefault(pc => pc.PartId == part.PartId) == null)
-                    {
-                        var partCar = new PartCar
-                        {
-                            CarId = car.Id,
-                            PartId = part.PartId
-                        };
+                    Make = carDto.Make,
+                    Model = carDto.Model,
+                    TravelledDistance = carDto.TravelledDistance
+                };
 
-                        car.PartCars.Add(partCar);
-                        context.PartCars.Add(partCar);
-                    }
+                var parts = carDto
+                    .Parts
+                    .Where(pdto => context.Parts.Any(p => p.Id == pdto.Id))
+                    .Select(p => p.Id)
+                    .Distinct();
+
+                foreach (var part in parts)
+                {
+                    var partCar = new PartCar
+                    {
+                        PartId = part,
+                        Car = car
+                    };
+
+                    partCars.Add(partCar);
                 }
 
                 cars.Add(car);
             }
 
+            context.Cars.AddRange(cars);
+            context.PartCars.AddRange(partCars);
             context.SaveChanges();
 
             return $"Successfully imported {cars.Count}";
@@ -224,7 +232,7 @@ namespace CarDealer
                 })
                 .ToArray();
 
-            var xmlSerializer = new XmlSerializer(typeof(LocalSupplierDto[]), 
+            var xmlSerializer = new XmlSerializer(typeof(LocalSupplierDto[]),
                 new XmlRootAttribute("suppliers"));
 
             var sb = new StringBuilder();

@@ -10,7 +10,13 @@ namespace PetStore
         {
             using var data = new PetStoreDbContext();
 
-            var brandService=new BrandService()
+            var brandService = new BrandService(data);
+
+            //brandService.Create("Whiskas");
+
+            var foodService=new FoodService(data);
+
+            foodService.BuyFromDistributor("Cat food", 0.350, 2.5m, 0.2, DateTime.Today, 1,1);
         }
     }
 }

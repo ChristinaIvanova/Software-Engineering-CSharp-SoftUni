@@ -11,5 +11,7 @@ namespace PetStore.Services
         int Create(string name);
 
         IEnumerable<BrandServiceListingModel> SearchByName(string name);
+
+        BrandWithToysServiceModel FindByIdWithToys(int id);
     }
 }

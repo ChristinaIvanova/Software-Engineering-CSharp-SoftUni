@@ -21,6 +21,8 @@ namespace PetStore.Data.Models
 
         public DateTime ExpirationDate { get; set; }
 
+        public decimal DistributorPrice { get; set; }
+
         public decimal Price { get; set; }
 
         public int CategoryId { get; set; }
